@@ -1,5 +1,7 @@
 # Claude Code Toolkit
 
+**[View the full documentation](https://chrisselig.github.io/claude-code-toolkit/)**
+
 A collection of reusable [Claude Code](https://claude.com/claude-code) skills and commands for Python data engineering, Git/GitHub workflows, and dashboard development.
 
 These are the global skills and commands I use across all my projects. They live in `~/.claude/skills/` and `~/.claude/commands/` and are available in every Claude Code session regardless of which project I'm in.
