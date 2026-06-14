@@ -1,0 +1,75 @@
+site_name: Claude Code Toolkit
+site_description: Reusable skills and commands for Claude Code — Python, Git, data engineering
+site_author: Chris Selig
+repo_url: https://github.com/chrisselig/claude-code-toolkit
+repo_name: chrisselig/claude-code-toolkit
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Skills:
+    - Overview: skills/index.md
+    - PR Workflow: skills/pr.md
+    - Data Profile: skills/data-profile.md
+    - API Explore: skills/api-explore.md
+    - ETL Scaffold: skills/etl-scaffold.md
+    - Deploy Streamlit: skills/deploy-streamlit.md
+    - Lint Fix: skills/lint-fix.md
+    - New Project: skills/new-project.md
+    - Protect Main: skills/protect-main.md
+    - Review PR: skills/review-pr.md
+    - Cleanup Branches: skills/cleanup-branches.md
+  - Commands:
+    - Overview: commands/index.md
+    - Status: commands/status.md
+    - TODO: commands/todo.md
+    - Test: commands/test.md
+    - Coverage: commands/coverage.md
+    - Dependencies: commands/deps.md
+    - Release: commands/release.md
+    - DB Schema: commands/db-schema.md
+    - Cron: commands/cron.md
+    - Env Setup: commands/env-setup.md
+  - Writing Your Own: writing-your-own.md
