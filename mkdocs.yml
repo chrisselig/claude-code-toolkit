@@ -61,6 +61,7 @@ nav:
     - Protect Main: skills/protect-main.md
     - Review PR: skills/review-pr.md
     - Cleanup Branches: skills/cleanup-branches.md
+    - Data Visualization: skills/visualization.md
   - Commands:
     - Overview: commands/index.md
     - Status: commands/status.md
