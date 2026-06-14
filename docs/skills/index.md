@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 10 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 11 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -33,6 +33,12 @@ The Claude Code Toolkit ships with 10 built-in skills that automate common devel
 | Skill | Description |
 |-------|-------------|
 | [Lint Fix](lint-fix.md) | Auto-detect the project linter and fix all errors without manual intervention |
+
+### Data Visualization
+
+| Skill | Description |
+|-------|-------------|
+| [Data Visualization](visualization.md) | Create clear, honest charts following Edward Tufte and Stephen Few principles |
 
 ## How Skills Work
 

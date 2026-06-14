@@ -44,6 +44,7 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Protect Main](skills/protect-main/) | `/protect-main` | Check and apply branch protection rules |
 | [Review PR](skills/review-pr/) | `/review-pr` | Checkout, review code, run tests, provide feedback on a PR |
 | [Cleanup Branches](skills/cleanup-branches/) | `/cleanup-branches` | Delete all merged local and remote branches |
+| [Data Visualization](skills/visualization/) | `/visualization` | Create clear, honest charts following Tufte and Few principles |
 
 ### Commands (quick actions)
 

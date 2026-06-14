@@ -61,6 +61,7 @@ But many of the tools are **generic enough for any Python project** — the Git 
 | [`/protect-main`](skills/protect-main.md) | Apply branch protection rules |
 | [`/review-pr`](skills/review-pr.md) | Review a PR: checkout, read diff, run tests |
 | [`/cleanup-branches`](skills/cleanup-branches.md) | Delete merged local + remote branches |
+| [`/visualization`](skills/visualization.md) | Create clear, honest charts (Tufte/Few best practices) |
 
 ### Commands
 
