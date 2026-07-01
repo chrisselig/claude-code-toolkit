@@ -1,3 +1,8 @@
+---
+name: lint-fix
+description: Auto-detect the project linter (ruff, falling back to flake8) and fix all linting errors autonomously. Use when the user wants lint errors cleaned up across the codebase.
+---
+
 # Fix All Lint Errors
 
 Autonomously fix all linting errors in the project.

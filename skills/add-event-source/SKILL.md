@@ -1,3 +1,8 @@
+---
+name: add-event-source
+description: Add a new economic event source to the forex trading bot — wires up the cron schedule, strategy params from MC analysis, static calendar dates, and Dukascopy data download. Use when onboarding a new pair+event (e.g. BOJ, RBA, SARB, TCMB) to the trading pipeline.
+---
+
 # Add Event Source
 
 Add a new economic event source to the forex trading bot. Ensures the full pipeline is ready: cron schedule covers event times, strategy params match MC analysis, static calendar has dates, and Dukascopy data is downloaded.

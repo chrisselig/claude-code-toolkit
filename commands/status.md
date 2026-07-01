@@ -1,3 +1,8 @@
+---
+name: status
+description: Report git status, recent commits, open PRs, and lint/test health in one summary. Use when the user wants a quick overview of the project's current state.
+---
+
 # Project Status
 
 Give a quick status report on the current state of the project.

@@ -1,3 +1,8 @@
+---
+name: cron
+description: List, add, validate, or remove cron jobs for the current project. Use when the user wants to inspect or edit their crontab or a project's scheduled jobs.
+---
+
 # Manage Cron Jobs
 
 List, add, validate, or remove cron jobs for the current project.

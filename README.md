@@ -47,6 +47,12 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Review PR](skills/review-pr/) | `/review-pr` | Checkout, review code, run tests, provide feedback on a PR |
 | [Cleanup Branches](skills/cleanup-branches/) | `/cleanup-branches` | Delete all merged local and remote branches |
 | [Data Visualization](skills/visualization/) | `/visualization` | Create clear, honest charts following Tufte and Few principles |
+| [Backfill](skills/backfill/) | `/backfill` | Idempotent, resumable, gap-aware historical data loads |
+| [Migrate](skills/migrate/) | `/migrate` | Versioned, reversible schema migrations for SQLite/Turso/DuckDB |
+| [New Dashboard](skills/new-dashboard/) | `/new-dashboard` | Scaffold a Streamlit or Shiny dashboard over your data source |
+| [MC Analysis](skills/mc-analysis/) | `/mc-analysis` | Monte Carlo + walk-forward validation → strategy research report |
+| [Trade Review](skills/trade-review/) | `/trade-review` | Analyze closed trades; compare live P&L vs backtest for drift |
+| [Add Event Source](skills/add-event-source/) | `/add-event-source` | Onboard a new economic event to the forex trading bot |
 
 ### Commands (quick actions)
 
@@ -63,6 +69,8 @@ Commands are triggered with `/command-name` and run a focused task.
 | [DB Schema](commands/db-schema.md) | `/db-schema` | Inspect, compare, or diff database schemas |
 | [Cron](commands/cron.md) | `/cron` | List, add, validate, or remove cron jobs |
 | [Env Setup](commands/env-setup.md) | `/env-setup` | Set up or verify a Python dev environment |
+| [Log Triage](commands/log-triage.md) | `/log-triage` | Parse Loguru logs, group errors, summarize an unattended run |
+| [Healthcheck](commands/healthcheck.md) | `/healthcheck` | Verify a scheduled job landed: freshness, volume, continuity |
 
 ---
 
@@ -93,7 +101,7 @@ Free API / CSV / Excel
 
 These skills and commands are designed around this workflow. They assume:
 
-- **Python 3.12+** with conda or venv
+- **Python 3.12+** with a miniforge conda environment (preferred) or venv
 - **Git + GitHub** with conventional commits and PRs
 - **ruff** for linting (falls back to flake8)
 - **pytest** for testing

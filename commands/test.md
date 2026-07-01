@@ -1,3 +1,8 @@
+---
+name: test
+description: Run the project's test suite, diagnose failures, and fix them. Use when the user wants to run tests or fix failing tests.
+---
+
 # Run Tests
 
 Run the project's test suite and report results.

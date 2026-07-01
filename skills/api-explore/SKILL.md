@@ -1,3 +1,8 @@
+---
+name: api-explore
+description: Investigate a free or public API endpoint, inspect its response shape, and optionally generate a typed Python client. Use when exploring a new API, understanding a response structure, or scaffolding an httpx/Pydantic client for a data source.
+---
+
 # Explore an API
 
 Investigate a free/public API endpoint, understand its structure, and optionally generate a Python client.

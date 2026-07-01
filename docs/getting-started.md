@@ -307,4 +307,4 @@ cp ~/claude-code-toolkit/commands/pr.md ~/.claude/commands/pr.md
 
 - Browse the [Skills Reference](skills/index.md) to see all available skills.
 - Browse the [Commands Reference](commands/index.md) to see all available slash commands.
-- Read the [Contributing Guide](contributing.md) to add your own skills and commands to the toolkit.
+- Read [Writing Your Own](writing-your-own.md) to add your own skills and commands to the toolkit.

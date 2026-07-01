@@ -1,3 +1,8 @@
+---
+name: release
+description: Create a semver tag and GitHub release with auto-generated notes. Use when the user wants to cut a release or tag a new version.
+---
+
 # Create a Release
 
 Tag and release the current state of the project.

@@ -55,6 +55,9 @@ nav:
     - Data Profile: skills/data-profile.md
     - API Explore: skills/api-explore.md
     - ETL Scaffold: skills/etl-scaffold.md
+    - Backfill: skills/backfill.md
+    - Migrate: skills/migrate.md
+    - New Dashboard: skills/new-dashboard.md
     - Deploy Streamlit: skills/deploy-streamlit.md
     - Lint Fix: skills/lint-fix.md
     - New Project: skills/new-project.md
@@ -62,6 +65,9 @@ nav:
     - Review PR: skills/review-pr.md
     - Cleanup Branches: skills/cleanup-branches.md
     - Data Visualization: skills/visualization.md
+    - MC Analysis: skills/mc-analysis.md
+    - Trade Review: skills/trade-review.md
+    - Add Event Source: skills/add-event-source.md
   - Commands:
     - Overview: commands/index.md
     - Status: commands/status.md
@@ -73,4 +79,6 @@ nav:
     - DB Schema: commands/db-schema.md
     - Cron: commands/cron.md
     - Env Setup: commands/env-setup.md
+    - Log Triage: commands/log-triage.md
+    - Healthcheck: commands/healthcheck.md
   - Writing Your Own: writing-your-own.md

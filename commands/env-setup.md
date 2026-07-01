@@ -1,3 +1,8 @@
+---
+name: env-setup
+description: Set up or verify a Python development environment for the current project, preferring miniforge conda environments. Use when the user wants to bootstrap or check their dev environment.
+---
+
 # Environment Setup
 
 Set up or verify a Python development environment for the current project.
@@ -9,7 +14,7 @@ Set up or verify a Python development environment for the current project.
    - `pyproject.toml` or `requirements.txt` → pip/venv
    - Existing conda env or `.venv` directory
 2. Based on what's found:
-   - **New env**: Create conda env or venv with the right Python version
+   - **New env**: Create a **miniforge conda environment** (preferred — matches the setup usable at work). Fall back to `venv` only if the user asks or conda is unavailable.
    - **Existing env**: Verify all deps are installed, check for version conflicts
    - **Stale env**: Compare installed packages against requirements
 3. Install dependencies:
@@ -26,10 +31,16 @@ Set up or verify a Python development environment for the current project.
 pip install pandas  # installs globally, version conflicts
 ```
 
-**GOOD** — isolated, reproducible:
+**GOOD** — isolated, reproducible, miniforge conda (preferred):
 ```bash
+# conda provided by miniforge (conda-forge default channel)
 conda create -n myproject python=3.12 -y
 conda activate myproject
 pip install -r requirements.txt
 pip install -e ".[dev]"
 ```
+
+## Notes
+
+- Prefer **miniforge** conda environments when creating a new environment — the user uses this at work and finds it easier than venv/uv. Only use `venv`/`uv` when the user explicitly asks or conda is unavailable.
+- Miniforge defaults to the `conda-forge` channel; no need to pass `-c conda-forge` for common packages.

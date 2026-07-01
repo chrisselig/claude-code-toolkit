@@ -1,3 +1,8 @@
+---
+name: protect-main
+description: Check whether the main branch has GitHub protection rules and apply flexible protection (require PRs, allow admin bypass) if missing. Use when setting up branch protection on a repo.
+---
+
 # Protect Main Branch
 
 Check if the main branch has protection rules enabled. If not, apply flexible protection (require PRs but allow admin bypass).

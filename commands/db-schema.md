@@ -1,3 +1,8 @@
+---
+name: db-schema
+description: Inspect, compare, or diff database schemas for SQLite, DuckDB/MotherDuck, or Turso. Use when the user wants to see a table's structure or compare schemas across databases.
+---
+
 # Database Schema
 
 Inspect, compare, or generate database schemas.

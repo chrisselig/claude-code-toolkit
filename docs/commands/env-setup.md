@@ -9,7 +9,7 @@ Detect, create, or verify a Python development environment for the current proje
     - `pyproject.toml` or `requirements.txt` indicates pip/venv
     - An existing conda env or `.venv` directory
 2. Based on what is found:
-    - **New environment**: creates a conda env or venv with the correct Python version
+    - **New environment**: creates a miniforge conda env (preferred) with the correct Python version, falling back to venv only if asked or conda is unavailable
     - **Existing environment**: verifies all dependencies are installed and checks for version conflicts
     - **Stale environment**: compares installed packages against requirements and flags drift
 3. Installs dependencies:

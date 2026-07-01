@@ -1,3 +1,8 @@
+---
+name: coverage
+description: Run the test suite with coverage and highlight untested code. Use when the user wants a coverage report or to find gaps in test coverage.
+---
+
 # Test Coverage Report
 
 Run tests with coverage and identify untested code.

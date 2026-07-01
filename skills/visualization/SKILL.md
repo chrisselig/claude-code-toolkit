@@ -1,3 +1,8 @@
+---
+name: visualization
+description: Create clear, honest, high-density charts following Tufte and Few principles. Use when building data visualizations, plots, or charts and the user wants publication-quality, non-misleading output.
+---
+
 # Data Visualization
 
 Create clear, honest, high-density charts following the principles of Edward Tufte and Stephen Few. Every pixel should serve the data.
