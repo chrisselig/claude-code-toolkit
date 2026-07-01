@@ -15,6 +15,7 @@ Deploy or debug a Streamlit application.
    - No hardcoded local file paths (use relative paths or env vars)
    - Secrets in `.streamlit/secrets.toml` or env vars, not in code
    - Database connections handle both local and remote (MotherDuck, Turso)
+   - `styles.css` (and any assets) committed to the repo and loaded via a path relative to the app file, so it resolves in cloud
 3. Deploy based on target:
    - **Streamlit Cloud**: Push to GitHub, connect at share.streamlit.io
    - **Local systemd**: Create a service file for persistent local hosting
