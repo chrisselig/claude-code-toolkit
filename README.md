@@ -28,6 +28,62 @@ cp -r ~/claude-code-toolkit/skills/pr ~/.claude/skills/
 
 ---
 
+## Windows Setup (Step-by-Step)
+
+New to the command line? This guide uses **Git Bash**, which gives you a Unix-style terminal on Windows so the commands below work exactly as written. Follow it top to bottom.
+
+### 1. Install the prerequisites
+
+- **Git for Windows** — download from [git-scm.com/download/win](https://git-scm.com/download/win) and install with the default options. This includes **Git Bash**, the terminal you'll use below.
+- **Claude Code** — if you haven't installed it yet, follow the [official install guide](https://docs.claude.com/en/docs/claude-code/setup).
+
+### 2. Open Git Bash
+
+Click the **Start** menu, type `Git Bash`, and open it. A dark terminal window appears. Every command below goes in this window — type it (or copy/paste) and press **Enter**.
+
+> **Tip:** to paste into Git Bash, use **right-click** or **Shift+Insert** (Ctrl+V may not work).
+
+### 3. Clone the toolkit
+
+```bash
+git clone https://github.com/chrisselig/claude-code-toolkit.git ~/claude-code-toolkit
+```
+
+This downloads the toolkit into a folder named `claude-code-toolkit` in your home directory (`C:\Users\YourName\claude-code-toolkit`).
+
+### 4. Copy the skills and commands into Claude Code
+
+```bash
+# Create the Claude Code folders if they don't exist yet
+mkdir -p ~/.claude/skills ~/.claude/commands
+
+# Copy everything over
+cp -r ~/claude-code-toolkit/skills/* ~/.claude/skills/
+cp -r ~/claude-code-toolkit/commands/* ~/.claude/commands/
+```
+
+### 5. Verify it worked
+
+```bash
+ls ~/.claude/skills
+ls ~/.claude/commands
+```
+
+You should see a list of folders (like `pr` and `new-dashboard`) and files (like `status.md`). Now open Claude Code and type `/` — the new skills and commands will show up in the list.
+
+### Updating later
+
+When the toolkit changes, pull the latest version and copy the files again:
+
+```bash
+cd ~/claude-code-toolkit
+git pull
+cp -r ~/claude-code-toolkit/skills/* ~/.claude/skills/
+cp -r ~/claude-code-toolkit/commands/* ~/.claude/commands/
+```
+
+---
+
 ## What's Included
 
 ### Skills (interactive workflows)
