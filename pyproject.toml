@@ -1,0 +1,19 @@
+[project]
+name = "claude-code-toolkit"
+version = "0.1.0"
+description = "Reusable skills and commands for Claude Code — Python, Git, data engineering"
+license = "MIT"
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = [
+    "mkdocs-material>=9.6",
+    "pre-commit>=4.0",
+    "ruff>=0.4",
+]
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

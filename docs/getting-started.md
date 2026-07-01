@@ -17,10 +17,10 @@ Before installing the toolkit, ensure you have the following:
 | [pytest](https://docs.pytest.org/) | 8.x | Test runner |
 | Git | 2.x | Version control |
 
-!!! note "Optional but recommended"
-    - **[uv](https://github.com/astral-sh/uv)** — Fast Python package installer, used by some skills for dependency management.
-    - **[pre-commit](https://pre-commit.com/)** — Git hook management for automated linting.
-    - **[MkDocs Material](https://squidfunnel.github.io/mkdocs-material/)** — If you plan to use the documentation skills.
+!!! note "Used by this project"
+    - **[uv](https://github.com/astral-sh/uv)** — Fast Python package installer, used for dependency management. Run `uv sync` to install dev dependencies.
+    - **[pre-commit](https://pre-commit.com/)** — Git hook management for automated linting. Run `pre-commit install` after cloning.
+    - **[MkDocs Material](https://squidfunk.github.io/mkdocs-material/)** — Powers the documentation site.
 
 Verify your environment:
 
@@ -31,6 +31,19 @@ python3 --version
 ruff version
 pytest --version
 ```
+
+---
+
+## Development Setup
+
+If you're contributing to the toolkit itself, install dev dependencies and pre-commit hooks:
+
+```bash
+uv sync
+pre-commit install
+```
+
+This installs `mkdocs-material`, `ruff`, and `pre-commit` into a local virtual environment and enables the pre-commit hooks for linting on every commit.
 
 ---
 
