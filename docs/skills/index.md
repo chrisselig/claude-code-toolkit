@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 11 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 17 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -20,13 +20,22 @@ The Claude Code Toolkit ships with 11 built-in skills that automate common devel
 | [Data Profile](data-profile.md) | Generate a data quality report for CSV, Parquet, Excel, or database tables |
 | [API Explore](api-explore.md) | Hit a public API, inspect the response, and generate a typed Python client |
 | [ETL Scaffold](etl-scaffold.md) | Create a standard Extract-Transform-Load pipeline with Pydantic validation |
+| [Backfill](backfill.md) | Idempotent, resumable, gap-aware historical data loads |
+| [Migrate](migrate.md) | Versioned, reversible schema migrations for SQLite, Turso, and DuckDB |
+
+### Trading
+
+| Skill | Description |
+|-------|-------------|
+| [MC Analysis](mc-analysis.md) | Monte Carlo + walk-forward validation, writing a strategy research report |
+| [Trade Review](trade-review.md) | Analyze closed trades and compare live P&L against the backtest |
+| [Add Event Source](add-event-source.md) | Onboard a new economic event to the forex trading bot |
 
 ### Project Setup
 
 | Skill | Description |
 |-------|-------------|
 | [New Project](new-project.md) | Scaffold a Python project with pyproject.toml, ruff, pytest, and git |
-| [Deploy Streamlit](deploy-streamlit.md) | Deploy or debug a Streamlit app locally, on Streamlit Cloud, or via Docker |
 
 ### Code Quality
 
@@ -34,10 +43,12 @@ The Claude Code Toolkit ships with 11 built-in skills that automate common devel
 |-------|-------------|
 | [Lint Fix](lint-fix.md) | Auto-detect the project linter and fix all errors without manual intervention |
 
-### Data Visualization
+### Dashboards and Visualization
 
 | Skill | Description |
 |-------|-------------|
+| [Deploy Streamlit](deploy-streamlit.md) | Deploy or debug a Streamlit app locally, on Streamlit Cloud, or via Docker |
+| [New Dashboard](new-dashboard.md) | Scaffold a Streamlit or Shiny dashboard over your data source |
 | [Data Visualization](visualization.md) | Create clear, honest charts following Edward Tufte and Stephen Few principles |
 
 ## How Skills Work

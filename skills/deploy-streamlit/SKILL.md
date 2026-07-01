@@ -1,3 +1,8 @@
+---
+name: deploy-streamlit
+description: Deploy or debug a Streamlit dashboard application. Use when shipping a Streamlit app, troubleshooting a deployment, or diagnosing runtime errors in a Streamlit dashboard.
+---
+
 # Deploy Streamlit App
 
 Deploy or debug a Streamlit application.

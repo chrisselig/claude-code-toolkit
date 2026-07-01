@@ -1,3 +1,8 @@
+---
+name: review-pr
+description: Check out a pull request, review the code, run its tests, and provide structured feedback. Use when the user wants a thorough review of an open PR.
+---
+
 # Review a Pull Request
 
 Thoroughly review a PR and provide feedback.

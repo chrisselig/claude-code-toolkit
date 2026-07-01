@@ -1,6 +1,6 @@
 # Commands
 
-Commands are quick, single-purpose actions that gather information or perform a focused task. Unlike [skills](../skills/), which are multi-step interactive workflows with decision points, commands run a well-defined sequence of steps and report back.
+Commands are quick, single-purpose actions that gather information or perform a focused task. Unlike [skills](../skills/index.md), which are multi-step interactive workflows with decision points, commands run a well-defined sequence of steps and report back.
 
 | Aspect | Commands | Skills |
 |--------|----------|--------|
@@ -23,6 +23,8 @@ Commands are quick, single-purpose actions that gather information or perform a 
 | [`/db-schema`](db-schema.md) | Inspect, compare, or document database schemas |
 | [`/cron`](cron.md) | List, add, validate, or remove cron jobs |
 | [`/env-setup`](env-setup.md) | Set up or verify a Python development environment |
+| [`/log-triage`](log-triage.md) | Parse Loguru logs, group errors, and summarize an unattended run |
+| [`/healthcheck`](healthcheck.md) | Verify a scheduled job landed: freshness, volume, continuity |
 
 ---
 

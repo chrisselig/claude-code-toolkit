@@ -1,3 +1,8 @@
+---
+name: etl-scaffold
+description: Scaffold a standard Extract-Transform-Load pipeline project with extract/transform/load modules, Pydantic models, tests, and idempotent database loading. Use when starting a new data pipeline or ETL project.
+---
+
 # ETL Pipeline Scaffold
 
 Create a standard Extract-Transform-Load pipeline for a data project.

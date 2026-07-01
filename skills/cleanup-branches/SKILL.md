@@ -1,3 +1,8 @@
+---
+name: cleanup-branches
+description: Delete local and remote git branches that have already been merged to main. Use when cleaning up stale branches after PRs are merged.
+---
+
 # Cleanup Merged Branches
 
 Delete local and remote branches that have been merged to main.

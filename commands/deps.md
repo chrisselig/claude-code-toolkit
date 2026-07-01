@@ -1,3 +1,8 @@
+---
+name: deps
+description: Audit project dependencies for outdated, vulnerable, or missing packages. Use when the user wants to check dependency health or security.
+---
+
 # Check Dependencies
 
 Audit project dependencies for issues.

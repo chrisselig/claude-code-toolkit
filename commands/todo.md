@@ -1,3 +1,8 @@
+---
+name: todo
+description: Scan the project for roadmap files and inline TODO/FIXME comments and report what remains. Use when the user wants to see outstanding work or TODO items.
+---
+
 # Check TODO Status
 
 Scan the project for remaining TODO items and give a status report.

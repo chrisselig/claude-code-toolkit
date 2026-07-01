@@ -1,3 +1,8 @@
+---
+name: data-profile
+description: Generate a data quality report for a CSV, Parquet, Excel, JSON file, or database table (SQLite, DuckDB/MotherDuck, Turso). Reports nulls, duplicates, outliers, type mismatches, and cardinality. Use when inspecting data quality before a load or when the user wants to profile a dataset.
+---
+
 # Data Profile
 
 Generate a quick data quality report for a CSV, Parquet, Excel file, or database table.

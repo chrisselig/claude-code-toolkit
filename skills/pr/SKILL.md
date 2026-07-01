@@ -1,3 +1,8 @@
+---
+name: pr
+description: Run the full pull-request workflow — lint, test, create a feature branch if needed, commit with conventional-commit messages, push, and open a PR. Use when the user wants to ship changes as a pull request.
+---
+
 # Create PR
 
 ## Steps
