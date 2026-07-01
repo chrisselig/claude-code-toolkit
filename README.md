@@ -155,6 +155,18 @@ good_code()
 
 ---
 
+## Development Setup
+
+```bash
+# Install dev dependencies (mkdocs-material, ruff, pre-commit)
+uv sync
+
+# Enable pre-commit hooks
+pre-commit install
+```
+
+---
+
 ## Contributing
 
 This is a personal toolkit, but if you find it useful:
