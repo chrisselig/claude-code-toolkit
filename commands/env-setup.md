@@ -44,3 +44,6 @@ pip install -e ".[dev]"
 
 - Prefer **miniforge** conda environments when creating a new environment — the user uses this at work and finds it easier than venv/uv. Only use `venv`/`uv` when the user explicitly asks or conda is unavailable.
 - Miniforge defaults to the `conda-forge` channel; no need to pass `-c conda-forge` for common packages.
+- `conda activate` only works in interactive shells. From scripts or Claude's shell, use `conda run -n <env> python ...` (or the env's absolute path, `~/miniforge3/envs/<env>/bin/python`) to run commands inside the env.
+- Never install into the `base` environment. If the current env is `base` or system Python, create a project env first.
+- If an env with the project's name already exists, verify against it instead of creating a duplicate — ask before recreating or deleting an existing env.

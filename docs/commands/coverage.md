@@ -4,11 +4,12 @@ Run tests with code coverage enabled and identify untested areas of the codebase
 
 ## What It Does
 
-1. Runs `pytest --cov=src --cov-report=term-missing -q`
-2. Identifies files with less than 80% coverage
-3. For each low-coverage file, shows the uncovered line ranges
-4. Suggests which missing tests would have the highest impact, focusing on business logic rather than boilerplate
-5. Reports overall coverage percentage, files below threshold, and total uncovered lines
+1. Detects the coverage target (configured `[tool.coverage]` value, `src/` layout, or the package directory) — it does not blindly assume `src`
+2. Runs `pytest --cov=<target> --cov-report=term-missing -q`
+3. Identifies files with less than 80% coverage
+4. For each low-coverage file, shows the uncovered line ranges
+5. Suggests which missing tests would have the highest impact, focusing on business logic rather than boilerplate
+6. Reports overall coverage percentage, files below threshold, and total uncovered lines
 
 ## Example
 

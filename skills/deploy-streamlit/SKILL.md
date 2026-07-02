@@ -16,11 +16,14 @@ Deploy or debug a Streamlit application.
    - Secrets in `.streamlit/secrets.toml` or env vars, not in code
    - Database connections handle both local and remote (MotherDuck, Turso)
    - `styles.css` (and any assets) committed to the repo and loaded via a path relative to the app file, so it resolves in cloud
-3. Deploy based on target:
+3. **Secret scan before any push to GitHub** — deploying to Streamlit Cloud means pushing the repo, and a pushed token is burned even if removed later:
+   - Confirm `.streamlit/secrets.toml`, `.env`, and local `.db`/data files are in `.gitignore` **and** not already tracked (`git ls-files`).
+   - Grep the code for hardcoded tokens (`grep -riE "token|api_key|secret|password" --include="*.py" --include="*.toml"`) and stop on any hit that isn't an env-var read.
+4. Deploy based on target:
    - **Streamlit Cloud**: Push to GitHub, connect at share.streamlit.io
    - **Local systemd**: Create a service file for persistent local hosting
    - **Docker**: Generate Dockerfile
-4. Verify deployment is live and report the URL.
+5. Verify deployment is live and report the URL. If it fails to boot, pull the app logs (Streamlit Cloud "Manage app" console, `journalctl -u <service>` for systemd, `docker logs` for Docker) and diagnose from the actual traceback — the most common causes are a dependency missing from requirements.txt, a secret not configured on the target, and a path that only exists locally.
 
 ## Examples
 

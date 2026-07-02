@@ -1,6 +1,7 @@
 ---
 name: data-profile
 description: Generate a data quality report for a CSV, Parquet, Excel, JSON file, or database table (SQLite, DuckDB/MotherDuck, Turso). Reports nulls, duplicates, outliers, type mismatches, and cardinality. Use when inspecting data quality before a load or when the user wants to profile a dataset.
+argument-hint: "[file path or db table]"
 ---
 
 # Data Profile
@@ -45,10 +46,13 @@ import os
 size_mb = os.path.getsize("huge_file.csv") / 1e6
 if size_mb > 100:
     import polars as pl
-    df = pl.scan_csv("huge_file.csv")  # lazy evaluation
+    lf = pl.scan_csv("huge_file.csv")           # lazy — nothing loaded yet
+    profile = lf.describe()                      # aggregate lazily…
+    sample = lf.head(5).collect()                # …and collect only small results
 else:
     df = pd.read_csv("huge_file.csv")
 ```
+Note `scan_csv` returns a `LazyFrame` — run aggregations on it and `.collect()` only the small outputs; calling DataFrame methods on it directly fails.
 
 ### Profiling output
 
@@ -74,5 +78,7 @@ mean   45.2    NaN
 ## Notes
 
 - Prefer polars over pandas for large files (>100MB)
+- For database tables, profile with SQL aggregates (`COUNT`, `MIN`, `MAX`, `GROUP BY`) or a `LIMIT`ed sample rather than `SELECT *` into memory — a remote Turso/MotherDuck table can be far larger than it looks
 - For database tables, show the CREATE TABLE schema alongside the profile
 - Never modify the source data — this is read-only profiling
+- If a column looks like PII (emails, names, account numbers), keep it out of the printed sample rows and top-values list — report its stats only

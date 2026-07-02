@@ -1,6 +1,7 @@
 ---
 name: mc-analysis
 description: Run Monte Carlo and walk-forward validation for a forex pair+event strategy, then write the research report that add-event-source reads. Use when evaluating whether a new pair+event combination is tradeable, or re-validating an existing strategy's params (distance/TP/SL pips).
+argument-hint: "[pair] [event]"
 ---
 
 # Monte Carlo & Walk-Forward Analysis

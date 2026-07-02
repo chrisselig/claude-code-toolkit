@@ -1,6 +1,7 @@
 ---
 name: api-explore
 description: Investigate a free or public API endpoint, inspect its response shape, and optionally generate a typed Python client. Use when exploring a new API, understanding a response structure, or scaffolding an httpx/Pydantic client for a data source.
+argument-hint: "[endpoint URL]"
 ---
 
 # Explore an API
@@ -11,14 +12,15 @@ Investigate a free/public API endpoint, understand its structure, and optionally
 
 1. Hit the endpoint with a GET request (or the method the user specifies).
    - Use `curl` or `httpx` via Python.
-   - Include any API key from `.env` if the user mentions one.
-   - Respect rate limits — never spam an endpoint.
+   - Include any API key from `.env` if the user mentions one — read it into the request, but never echo the key itself in commands, output, or generated code.
+   - Stick to read-only methods unless the user explicitly asks for a write — never probe an unfamiliar API with POST/PUT/DELETE.
+   - Respect rate limits — never spam an endpoint; one request is usually enough to see the shape.
 2. Inspect the response:
    - HTTP status code and content-type
    - Rate limit headers (X-RateLimit-*, Retry-After)
    - Pagination mechanism (offset, cursor, next URL)
    - Response body structure: keys, types, nesting depth
-3. Show a sample response (truncated to first 3 items if it's a list).
+3. Show a sample response (truncated to first 3 items if it's a list). Redact anything sensitive that comes back — tokens, emails, account ids — before printing it.
 4. Document the API: base URL, auth method, rate limits, response schema.
 5. If the user asks, generate a minimal Python client with `httpx`.
 
@@ -77,7 +79,9 @@ while url:
 
 ## Notes
 
-- Never hardcode API keys — always read from `.env` or environment variables
+- Never hardcode API keys — always read from `.env` or environment variables, and never print a key in output, logs, or error messages
+- On a 401/403, report that auth failed and stop — don't retry with variations, and don't guess at credentials
 - Check PyPI for an existing SDK before writing a custom client
 - If the API requires signup, tell the user and provide the signup URL
-- For rate-limited APIs, add `asyncio.sleep()` between requests
+- For rate-limited APIs, add `asyncio.sleep()` between requests, and honor `Retry-After` when the server sends one
+- Check the API's terms before scripting against it — some free tiers forbid automated bulk access

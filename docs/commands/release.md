@@ -4,18 +4,20 @@ Create a semver-tagged release with auto-generated release notes and publish it 
 
 ## What It Does
 
-1. Lists commits since the last tag to determine what has changed
-2. Determines the next version using semantic versioning:
+1. Verifies preconditions: on the default branch, clean working tree, up to date with the remote, CI green
+2. Lists commits since the last tag to determine what has changed (full history if the repo has no tags yet)
+3. Determines the next version using semantic versioning:
     - `feat:` commits trigger a **minor** bump
     - `fix:` commits trigger a **patch** bump
     - Breaking changes trigger a **major** bump
     - If no previous tags exist, starts at `v0.1.0`
-3. Generates release notes from commit messages, grouped by type (Features, Fixes, Docs, etc.)
-4. Shows the proposed version and notes for user confirmation
-5. Creates an annotated git tag
-6. Pushes the tag to the remote
-7. Creates a GitHub release via `gh release create`
-8. Reports the release URL
+4. Generates release notes from commit messages, grouped by type (Features, Fixes, Docs, etc.)
+5. Verifies the proposed tag doesn't already exist locally or on the remote
+6. Shows the proposed version and notes for user confirmation
+7. Creates an annotated git tag
+8. Pushes the tag to the remote
+9. Creates a GitHub release via `gh release create`
+10. Reports the release URL
 
 ## Example
 

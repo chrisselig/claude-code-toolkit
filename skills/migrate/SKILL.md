@@ -1,6 +1,7 @@
 ---
 name: migrate
 description: Create and apply versioned, idempotent schema migrations for SQLite, Turso/libSQL, or DuckDB/MotherDuck, with matching up/down scripts. Use when the user needs to add a column, change a table, or evolve a database schema safely across environments.
+argument-hint: "[schema change description] [target db]"
 ---
 
 # Database Migration
@@ -25,11 +26,13 @@ Evolve a database schema through small, ordered, reversible migration files inst
 
 5. **Track applied versions.** Maintain a `schema_migrations(version TEXT PRIMARY KEY, applied_at TIMESTAMP)` table. Before applying, check it; after applying, insert the version. This makes migrations idempotent across dev/prod.
 
-6. **Apply inside a transaction** where the engine supports DDL transactions (SQLite/libSQL do; DuckDB largely does). If anything fails, roll back so the schema is never left half-migrated.
+6. **Back up before applying.** For file databases, copy the file (`cp trades.db trades.db.bak-<date>`); for Turso, `turso db shell <db> .dump > backup.sql`; for MotherDuck, `EXPORT DATABASE` or at minimum a `CREATE TABLE ... AS SELECT` copy of the affected tables. A down migration protects against a *wrong* migration, not a *botched* one.
 
-7. **Handle NOT NULL on existing tables in the safe order:** add the column as nullable (or with a default) -> backfill values -> then add the constraint. Adding `NOT NULL` with no default to a populated table fails.
+7. **Apply inside a transaction** where the engine supports DDL transactions (SQLite/libSQL do; DuckDB largely does). If anything fails, roll back so the schema is never left half-migrated.
 
-8. Report what changed, the new version number, and how to roll back.
+8. **Handle NOT NULL on existing tables in the safe order:** add the column as nullable (or with a default) -> backfill values -> then add the constraint. Adding `NOT NULL` with no default to a populated table fails.
+
+9. Report what changed, the new version number, and how to roll back.
 
 ## Examples
 

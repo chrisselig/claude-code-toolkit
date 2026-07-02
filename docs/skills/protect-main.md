@@ -4,10 +4,11 @@ Check whether the `main` branch has protection rules enabled, and apply flexible
 
 ## How It Works
 
-1. **Check current status** -- Query the GitHub API for existing protection rules on `main`.
-2. **If already protected** -- Report the current rules and exit. No changes are made.
-3. **If unprotected** -- Apply flexible protection rules via `PUT` to the branch protection endpoint.
-4. **Verify** -- Confirm that protection was applied successfully.
+1. **Detect the default branch** -- `gh repo view --json defaultBranchRef` (works for `main`, `master`, or anything else).
+2. **Check current status** -- Query the GitHub API for existing protection rules on the default branch.
+3. **If already protected** -- Report the current rules and exit. No changes are made.
+4. **If unprotected** -- Apply flexible protection rules via `PUT` to the branch protection endpoint.
+5. **Verify** -- Re-query the endpoint and confirm the rules landed.
 
 ## Protection Rules Applied
 
@@ -24,15 +25,22 @@ Check whether the `main` branch has protection rules enabled, and apply flexible
 
 ## The API Call
 
+The payload is passed as a JSON body via `--input` — typed nulls and nested objects are unreliable with `--field`:
+
 ```bash
-gh api repos/{owner}/{repo}/branches/main/protection \
-  --method PUT \
-  --field "required_pull_request_reviews[dismiss_stale_reviews]=false" \
-  --field "required_pull_request_reviews[require_code_owner_reviews]=false" \
-  --field "required_pull_request_reviews[required_approving_review_count]=0" \
-  --field "enforce_admins=false" \
-  --field "required_status_checks=null" \
-  --field "restrictions=null"
+gh api "repos/{owner}/{repo}/branches/main/protection" \
+  --method PUT --input - <<'EOF'
+{
+  "required_pull_request_reviews": {
+    "dismiss_stale_reviews": false,
+    "require_code_owner_reviews": false,
+    "required_approving_review_count": 0
+  },
+  "enforce_admins": false,
+  "required_status_checks": null,
+  "restrictions": null
+}
+EOF
 ```
 
 ## Flexible vs Strict Protection
@@ -51,15 +59,19 @@ The skill applies **flexible** protection by default, which is suitable for solo
     If your project grows to multiple contributors, consider tightening the rules:
 
     ```bash
-    gh api repos/{owner}/{repo}/branches/main/protection \
-      --method PUT \
-      --field "required_pull_request_reviews[dismiss_stale_reviews]=true" \
-      --field "required_pull_request_reviews[require_code_owner_reviews]=true" \
-      --field "required_pull_request_reviews[required_approving_review_count]=1" \
-      --field "enforce_admins=true" \
-      --field "required_status_checks[strict]=true" \
-      --field "required_status_checks[contexts][]=ci" \
-      --field "restrictions=null"
+    gh api "repos/{owner}/{repo}/branches/main/protection" \
+      --method PUT --input - <<'EOF'
+    {
+      "required_pull_request_reviews": {
+        "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": true,
+        "required_approving_review_count": 1
+      },
+      "enforce_admins": true,
+      "required_status_checks": { "strict": true, "contexts": ["ci"] },
+      "restrictions": null
+    }
+    EOF
     ```
 
 ## Verification
@@ -85,6 +97,6 @@ $ gh api repos/{owner}/{repo}/branches/main/protection \
 
 - This skill requires the `gh` CLI to be authenticated with a token that has `repo` scope.
 - Branch protection is a GitHub feature. It does not apply to local-only repositories.
-- The skill only targets the `main` branch. To protect other branches (e.g., `develop`), modify the branch name in the API call.
-- If the repository uses `master` instead of `main`, the skill detects this and adjusts accordingly.
+- The skill targets the repo's default branch (detected via `gh repo view`). To protect other branches (e.g., `develop`), modify the branch name in the API call.
+- A 403 on the PUT usually means a private repo on a free plan or missing admin rights — the skill reports the error instead of retrying.
 - Free GitHub plans support branch protection on public repos only. Private repos require GitHub Pro or a paid plan.
