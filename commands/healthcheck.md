@@ -1,6 +1,7 @@
 ---
 name: healthcheck
 description: Verify a scheduled pipeline or sync actually landed — check row counts, data freshness, and database reachability against expectations. Use when the user wants to confirm a cron job succeeded, check data freshness, or sanity-check that a database is up to date.
+argument-hint: "[db/table to check] [expected cadence]"
 ---
 
 # Healthcheck

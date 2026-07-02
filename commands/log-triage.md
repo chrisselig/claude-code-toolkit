@@ -1,6 +1,7 @@
 ---
 name: log-triage
 description: Parse a Loguru (or plain) log file from a pipeline or bot run, surface errors and warnings, and summarize what happened. Use when the user wants to know how an unattended run went, diagnose a failure, or scan logs for anomalies.
+argument-hint: "[log file path (defaults to newest in logs/)]"
 ---
 
 # Log Triage

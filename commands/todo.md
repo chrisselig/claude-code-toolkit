@@ -14,5 +14,7 @@ Scan the project for remaining TODO items and give a status report.
    - Items marked as DONE (strikethrough or checkmarks)
    - Items still open, grouped by priority/category
    - Count: X done, Y remaining
-3. Also scan the codebase for inline TODOs: `grep -rn "TODO\|FIXME\|HACK\|XXX" --include="*.py" --include="*.ts" --include="*.js" | head -30`
+3. Also scan the codebase for inline TODOs, excluding vendored and generated dirs:
+   `grep -rn "TODO\|FIXME\|HACK\|XXX" --include="*.py" --include="*.ts" --include="*.js" --exclude-dir={.git,.venv,venv,node_modules,site,dist,build} . | head -30`
+   - If more than 30 hits, report the total count so the truncation is visible.
 4. Present a concise summary of what's left to do.

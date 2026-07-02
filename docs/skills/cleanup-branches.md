@@ -4,14 +4,16 @@ Delete local and remote branches that have been merged into `main`. Only merged 
 
 ## How It Works
 
-1. **Switch to main** -- Check out `main` and pull the latest changes.
-2. **List merged local branches** -- Find all local branches that have been fully merged into `main`.
-3. **List merged remote branches** -- Find all remote branches that have been fully merged into `origin/main`.
-4. **Confirm with the user** -- Show exactly which branches will be deleted before proceeding.
-5. **Delete local branches** -- Remove merged local branches with `git branch -d`.
-6. **Delete remote branches** -- Remove merged remote branches with `git push origin --delete`.
-7. **Prune stale refs** -- Run `git remote prune origin` to clean up stale remote-tracking references.
-8. **Report** -- Summarize how many branches were cleaned up.
+1. **Check the working tree is clean** -- Stop if there are uncommitted changes.
+2. **Switch to main** -- Check out `main` and pull the latest changes.
+3. **List merged local branches** -- Find all local branches that have been fully merged into `main`.
+4. **Catch squash-merged branches** -- `--merged` misses branches merged via GitHub's "Squash and merge". For each remaining branch, check `gh pr list --state merged --head <branch>` — a merged PR means the branch is safe to delete even though git disagrees.
+5. **List merged remote branches** -- Find all remote branches that have been fully merged into `origin/main`.
+6. **Confirm with the user** -- Show exactly which branches will be deleted before proceeding.
+7. **Delete local branches** -- Remove merged local branches with `git branch -d` (`-D` only for branches confirmed merged via a PR in step 4).
+8. **Delete remote branches** -- Remove merged remote branches with `git push origin --delete`.
+9. **Prune stale refs** -- Run `git remote prune origin` to clean up stale remote-tracking references.
+10. **Report** -- Summarize how many branches were cleaned up, and which were kept and why.
 
 ## Example Session
 
@@ -64,15 +66,18 @@ Cleaned up 3 local and 2 remote branches.
 
 | Check | Purpose |
 |-------|---------|
-| Only `--merged` branches | Unmerged work is never deleted |
-| `git branch -d` (not `-D`) | Fails safely if git detects the branch is not fully merged |
+| Clean working tree required | Never switches branches over uncommitted work |
+| Only `--merged` branches or branches with a merged PR | Unmerged work is never deleted |
+| `git branch -d` by default | Fails safely if git detects the branch is not fully merged |
+| `-D` only with a verified merged PR | Squash-merged branches can be cleaned without risking real work |
 | `main` and `master` excluded | The primary branch is never deleted |
+| Open-PR branches excluded | In-flight work is never deleted |
 | User confirmation | The list of branches is shown before any deletion occurs |
 
 !!! warning "What this skill will NOT do"
-    - Delete branches that have not been merged into `main`
-    - Delete the `main` or `master` branch
-    - Force-delete branches (`-D` is never used)
+    - Delete branches that are neither merged into `main` nor attached to a merged PR
+    - Delete the `main` or `master` branch, the current branch, or a branch with an open PR
+    - Force-delete a branch whose merge status could not be verified
     - Delete branches without showing the list to the user first
 
 ## Dry Run

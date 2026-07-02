@@ -1,6 +1,7 @@
 ---
 name: add-event-source
 description: Add a new economic event source to the forex trading bot — wires up the cron schedule, strategy params from MC analysis, static calendar dates, and Dukascopy data download. Use when onboarding a new pair+event (e.g. BOJ, RBA, SARB, TCMB) to the trading pipeline.
+argument-hint: "[event name] [pair]"
 ---
 
 # Add Event Source
@@ -139,6 +140,8 @@ FAIL — extend to 5-23: sed 's/5-17/5-23/' in crontab
 
 ## Notes
 
+- **The "currently ..." values in this skill (pre_event_minutes=30, sync windows, holding times) are snapshots and will drift.** Always read the live values from `config/settings.yaml` and `crontab -l` at run time; where the live value disagrees with this file, the live value wins.
+- Before installing any crontab change, back it up first: `crontab -l > ~/.crontab.backup.$(date +%Y%m%d-%H%M%S)` (see `/cron`).
 - The bot's `pre_event_minutes` setting (currently 30) determines how early before the event the straddle orders are placed. The cron must start TWS+bot before this window opens.
 - TWS has a daily disconnect at ~11:45 PM ET. Events between 11:30 PM and 12:15 AM ET are risky due to potential disconnect/reconnect timing.
 - Paper trading on port 4002/7497 does NOT require 2FA — fully unattended. Live trading on port 4001/7496 requires 2FA and cannot auto-start.

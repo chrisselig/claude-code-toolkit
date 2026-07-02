@@ -73,7 +73,8 @@ The correct approach:
 
 ```bash
 conda create -n myproject python=3.12 -y
-conda activate myproject
+conda activate myproject          # interactive shells
+# from scripts / non-interactive shells, use: conda run -n myproject pip install ...
 pip install -r requirements.txt
 pip install -e ".[dev]"
 ```

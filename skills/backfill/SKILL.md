@@ -1,6 +1,7 @@
 ---
 name: backfill
 description: Load historical data for a date range into a database or file store idempotently and resumably, detecting and filling gaps without creating duplicates. Use when the user needs to backfill history, re-download missing dates, or fill holes in a time-series (e.g. Dukascopy bars, API history).
+argument-hint: "[source/entity] [date range]"
 ---
 
 # Historical Backfill
@@ -16,15 +17,17 @@ Fill a data store with historical records over a date range, safely restartable 
 
 2. **Detect what's already present before downloading anything.** Query the destination for the min/max timestamp and, more importantly, the *gaps* — missing days inside the existing range, not just the ends. Only fetch what is missing.
 
-3. **Chunk the work** by a natural period (per day or per week). Small chunks make the job resumable and keep memory bounded.
+3. **Size the job before starting.** Estimate the request/chunk count from the gap list; if the source has a hard quota or the run will be large (thousands of requests, hours of runtime), tell the user the estimate and confirm before firing.
 
-4. **Fetch each missing chunk** with retries and backoff. Respect the source's rate limits. On a transient failure, retry; on a persistent failure, log the chunk and continue — never let one bad day abort the whole backfill.
+4. **Chunk the work** by a natural period (per day or per week). Small chunks make the job resumable and keep memory bounded.
 
-5. **Write idempotently.** Use upsert / `INSERT OR REPLACE` / partition-overwrite keyed on (entity, timestamp) so re-running a chunk never duplicates rows. For Parquet, write one file per partition and overwrite that partition.
+5. **Fetch each missing chunk** with retries and backoff. Respect the source's rate limits. On a transient failure, retry; on a persistent failure, log the chunk and continue — never let one bad day abort the whole backfill.
 
-6. **Verify after each chunk:** expected vs actual row count, and no unexpected gap remains. Log `entity date: N rows` per chunk.
+6. **Write idempotently.** Use upsert / `INSERT OR REPLACE` / partition-overwrite keyed on (entity, timestamp) so re-running a chunk never duplicates rows. For Parquet, write one file per partition and overwrite that partition.
 
-7. **Report a coverage summary:** requested range, chunks fetched, chunks skipped (already present), chunks failed (with dates), and any remaining gaps. Do not claim full coverage if chunks failed — say exactly which dates are still missing.
+7. **Verify after each chunk:** expected vs actual row count, and no unexpected gap remains. Log `entity date: N rows` per chunk.
+
+8. **Report a coverage summary:** requested range, chunks fetched, chunks skipped (already present), chunks failed (with dates), and any remaining gaps. Do not claim full coverage if chunks failed — say exactly which dates are still missing.
 
 ## Examples
 

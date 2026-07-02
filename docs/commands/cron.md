@@ -10,11 +10,13 @@ List, add, validate, or remove cron jobs for the current project.
     - **Add**: writes a new cron entry, validates the schedule expression, and confirms before installing
     - **Remove**: shows the entry to remove, confirms, then installs the updated crontab
     - **Validate**: checks that scripts referenced in cron jobs exist and are executable
-3. When adding entries, enforces best practices:
-    - Absolute paths for all scripts and interpreters
-    - Output redirected to a log file
+3. Before installing any modified crontab, backs up the current one (`crontab -l > ~/.crontab.backup.<timestamp>`), shows a diff for confirmation, installs the full edited table (never `crontab -r`), and re-lists to verify
+4. When adding entries, enforces best practices:
+    - Absolute paths for all scripts and interpreters (cron has a minimal PATH and no shell profile)
+    - Output redirected to a log file (and the log directory exists)
     - A comment above each entry explaining its purpose
     - Verification that the target script exists and is executable
+    - Schedules written in the server's local timezone
 
 ## Example
 

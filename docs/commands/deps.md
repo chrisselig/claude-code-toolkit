@@ -9,7 +9,7 @@ Audit project dependencies for outdated versions, security vulnerabilities, and 
     - Python: `pip list --outdated`
     - Node: `npm outdated`
 3. Checks for security vulnerabilities:
-    - Python: `pip-audit` or `safety check`
+    - Python: `pip-audit` (installed on demand; `safety check` is no longer used — it requires a login)
     - Node: `npm audit`
 4. Verifies lock file consistency:
     - Are pinned versions in `requirements.txt` still within `pyproject.toml` ranges?

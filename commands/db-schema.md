@@ -1,6 +1,7 @@
 ---
 name: db-schema
 description: Inspect, compare, or diff database schemas for SQLite, DuckDB/MotherDuck, or Turso. Use when the user wants to see a table's structure or compare schemas across databases.
+argument-hint: "[db path/url] [table]"
 ---
 
 # Database Schema
@@ -21,6 +22,9 @@ Inspect, compare, or generate database schemas.
 4. If generating a migration:
    - Show the ALTER TABLE statements needed to sync
    - Warn about destructive changes (column drops, type changes)
+   - Do **not** apply them here — hand off to the `/migrate` skill, which versions and applies migrations safely.
+
+This command is strictly read-only: open SQLite/DuckDB files with read-only flags where supported, and never execute DDL or DML while inspecting. If a connection fails (missing file, expired Turso token), report the cause and stop rather than guessing at the schema.
 
 **BAD** — raw SQL dump with no context:
 ```

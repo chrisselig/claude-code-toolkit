@@ -1,6 +1,7 @@
 ---
 name: trade-review
 description: Analyze closed trades from Turso/SQLite/DuckDB and report P&L, win rate, expectancy, drawdown, and Sharpe — then compare live results against the backtest to detect strategy drift. Use when the user wants a trading performance review, a P&L summary, or to check whether a strategy is still working live.
+argument-hint: "[time window] [pair/event filter]"
 ---
 
 # Trade Review
