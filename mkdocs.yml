@@ -64,6 +64,8 @@ nav:
     - Protect Main: skills/protect-main.md
     - Review PR: skills/review-pr.md
     - Cleanup Branches: skills/cleanup-branches.md
+    - Git Rescue: skills/git-rescue.md
+    - Data Diff: skills/data-diff.md
     - Data Visualization: skills/visualization.md
     - MC Analysis: skills/mc-analysis.md
     - Trade Review: skills/trade-review.md
