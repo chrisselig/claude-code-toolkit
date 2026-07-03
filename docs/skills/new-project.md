@@ -131,4 +131,4 @@ The `CLAUDE.md` file establishes project conventions for Claude Code:
 - The src-layout (`src/project_name/`) is used instead of flat layout to prevent accidental imports from the project root.
 - The initial commit message follows conventional commit format: `feat: initial project scaffold`.
 - Branch protection uses the flexible approach: PRs are required for non-admins, but the repo owner can push directly. See the [Protect Main](protect-main.md) skill for details.
-- The `.env.example` file documents required environment variables without containing actual secrets.
+- The `.env.example` file documents required environment variables with placeholder values only — the skill never copies or reads a real `.env` to build it.

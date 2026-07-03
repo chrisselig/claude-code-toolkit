@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 19 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 20 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -13,6 +13,7 @@ The Claude Code Toolkit ships with 19 built-in skills that automate common devel
 | [Protect Main](protect-main.md) | Apply branch protection rules via the GitHub API |
 | [Cleanup Branches](cleanup-branches.md) | Delete local and remote branches that have been merged to main |
 | [Git Rescue](git-rescue.md) | Recover lost commits, undo bad rebases/resets, and restore deleted branches |
+| [Secrets Audit](secrets-audit.md) | Scan the working tree, tracked files, and git history for exposed credentials |
 
 ### Data Engineering
 

@@ -92,3 +92,4 @@ Given a file `sales_data.csv` with 10,000 rows:
 - For database tables, the `CREATE TABLE` schema is shown alongside the profile.
 - Polars is preferred over pandas for files over 100 MB due to lower memory usage and faster execution.
 - The first 5 rows are always included as a sample to help the user orient.
+- Database credentials come from the environment; connection strings embedding tokens are never printed.

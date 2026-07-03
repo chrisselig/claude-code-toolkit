@@ -40,7 +40,7 @@ project_name/
    - `[tool.ruff]` config (line-length=120, target Python version)
    - `[tool.pytest.ini_options]` config
    - `[project.optional-dependencies]` with dev deps (pytest, ruff)
-6. Generate `.gitignore` for Python (venv, __pycache__, .env, *.pyc, dist/, *.egg-info/) **before** the first commit.
+6. Generate `.gitignore` for Python (venv, __pycache__, .env, *.pyc, dist/, *.egg-info/) **before** the first commit. Seed `.env.example` with placeholder values only (`API_KEY=your-key-here`) — never copy or read a real `.env` to build it.
 7. Generate a minimal `CLAUDE.md` with project conventions.
 8. Initialize git repo: `git init`, then `git status` to confirm `.env` and other ignored files are not listed, then `git add -A && git commit -m "feat: initial project scaffold"`.
 9. Create GitHub repo if requested: `gh repo create` — confirm public vs private with the user, and push the initial commit.

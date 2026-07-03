@@ -19,6 +19,7 @@ Deploy or debug a Streamlit application.
 3. **Secret scan before any push to GitHub** — deploying to Streamlit Cloud means pushing the repo, and a pushed token is burned even if removed later:
    - Confirm `.streamlit/secrets.toml`, `.env`, and local `.db`/data files are in `.gitignore` **and** not already tracked (`git ls-files`).
    - Grep the code for hardcoded tokens (`grep -riE "token|api_key|secret|password" --include="*.py" --include="*.toml"`) and stop on any hit that isn't an env-var read.
+   - For a deeper pass that includes git history, run `/secrets-audit` — a secret deleted from the tip may still be in a commit that is about to be pushed.
 4. Deploy based on target:
    - **Streamlit Cloud**: Push to GitHub, connect at share.streamlit.io
    - **Local systemd**: Create a service file for persistent local hosting

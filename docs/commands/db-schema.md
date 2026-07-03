@@ -61,3 +61,4 @@ Typical output for a SQLite database:
 - For SQLAlchemy projects, the command reads the Python model definitions directly rather than connecting to a live database
 - Row counts are approximate for large tables (uses SQLite `max(rowid)` or equivalent)
 - The command does not execute migrations; it only generates and displays the SQL
+- Connection URLs and tokens come from the environment; a connection string that embeds a credential is never echoed

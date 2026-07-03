@@ -47,3 +47,4 @@ pip install -e ".[dev]"
 - `conda activate` only works in interactive shells. From scripts or Claude's shell, use `conda run -n <env> python ...` (or the env's absolute path, `~/miniforge3/envs/<env>/bin/python`) to run commands inside the env.
 - Never install into the `base` environment. If the current env is `base` or system Python, create a project env first.
 - If an env with the project's name already exists, verify against it instead of creating a duplicate — ask before recreating or deleting an existing env.
+- Verify secrets by presence, not value: check that a required variable is set (`test -n "${VAR:-}"`), and never `cat` a `.env` file or print a variable's value to confirm it — the value must not appear in output or logs.

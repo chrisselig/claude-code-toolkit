@@ -150,6 +150,6 @@ project_name/
 ## Notes
 
 - The `data/` directory is always gitignored. Raw data stays local or in cloud storage.
-- The `.env.example` file documents required environment variables without exposing secrets.
+- The `.env.example` file documents required environment variables with placeholder values only; pipeline code reads credentials from the environment, never from constants.
 - Test fixtures in `tests/fixtures/` contain small sample datasets (5-10 rows) for unit tests.
 - For scheduled pipelines, a `scripts/run_pipeline.py` CLI entry point is generated with argument parsing.

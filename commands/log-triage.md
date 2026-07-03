@@ -61,3 +61,4 @@ Look at:
 - A run with a start line but no success/completion line is a crash or a hang — call it out even if there is no explicit ERROR.
 - This is read-only triage. It diagnoses; it does not edit code or config. For fixing failing tests use `/test`; for the trading pipeline, feed findings into `/trade-review` or `/add-event-source`.
 - If the log is huge, scan for level markers and timestamps rather than reading every line; report the window actually examined.
+- Logs leak secrets: connection URLs with embedded tokens, `Authorization` headers, keys echoed by a crashing script. Redact any credential-shaped value (keep at most the first 4 characters) before quoting a log line in the report.

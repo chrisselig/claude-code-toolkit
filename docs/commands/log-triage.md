@@ -45,3 +45,4 @@ Look at:
 - Always groups repeated errors with a count so the one that matters isn't buried.
 - A start line with no completion line is a crash or hang — flagged even without an explicit ERROR.
 - Read-only triage — it diagnoses, it does not edit code or config.
+- Credential-shaped values in log lines (tokens in URLs, auth headers) are redacted before being quoted in the report.

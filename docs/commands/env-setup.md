@@ -85,3 +85,4 @@ pip install -e ".[dev]"
 - For conda environments, it checks the conda env list to find matching environments by name
 - Import verification scans `src/` for `import` and `from ... import` statements and confirms each top-level package is installed
 - The command never modifies an environment without user confirmation
+- Secrets are verified by presence, not value — the command never reads a `.env` file or prints an environment variable's value

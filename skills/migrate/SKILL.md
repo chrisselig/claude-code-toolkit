@@ -79,3 +79,4 @@ SQLite/Turso:      no ALTER TYPE — create new table, copy, swap, drop old.
 - MotherDuck: migrations run against the cloud database; confirm you are pointed at the right `md:` database and not a local file.
 - Commit the migration files. They are the versioned history of the schema and must travel with the code.
 - If the change needs a data backfill from an external source (not just a constant), that is a job for the `/backfill` skill, not a DDL migration.
+- Credentials come from the environment (`MOTHERDUCK_TOKEN`, Turso URL/token), never from a migration file. Migrations are committed, so a token pasted into one is a token in git history.

@@ -57,3 +57,4 @@ Check: `crontab -l` for sync_to_turso.py, and logs/ for a 2026-07-01 run
 - "The job completed" is not "the job worked". Always check volume and freshness, not just that a process exited 0.
 - Read-only. This verifies state; it does not fix it. On a FAIL, point to the next step: `/log-triage` for the run's logs, `/cron` to inspect the schedule.
 - Good as a recurring check — pairs naturally with `/loop` or a cron that runs this and alerts on FAIL.
+- Connection credentials (Turso URL/token, `MOTHERDUCK_TOKEN`) come from the environment at run time — never print them, and never read `.env` to "check" them. On an auth failure, report which variable is missing or expired, never its value.

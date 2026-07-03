@@ -82,3 +82,4 @@ Next: re-run /backfill for that date, then re-diff.
 - Common false positives to settle up front: float representation, timezone-naive vs -aware timestamps, TEXT vs INTEGER coercion across engines, trailing whitespace, and NULL vs empty string. List whatever was ignored in the final report.
 - Big tables: run counts and aggregates in the database, not pandas; pull only the mismatch samples into memory.
 - Pairs naturally with `/migrate` (verify a table rebuild copied everything), `/backfill` (verify a re-run reproduced the load), and `/etl-scaffold` (regression-check a transform refactor).
+- Connection credentials for both sides come from environment variables — never print them, and keep credential-bearing URLs out of the final report.

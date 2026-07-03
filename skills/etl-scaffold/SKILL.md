@@ -143,3 +143,4 @@ else:
 - Use polars over pandas for transform steps (faster, less memory)
 - Log row counts at each stage: extracted N → transformed M → loaded M
 - Store raw data before transforms for debugging (raw/ directory or staging table)
+- `.env.example` documents required variables with placeholder values only (`MOTHERDUCK_TOKEN=your-token-here`) — never seed it from a real `.env`; pipeline code reads credentials from the environment, never from constants

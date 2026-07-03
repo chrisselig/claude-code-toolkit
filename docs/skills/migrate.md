@@ -45,3 +45,4 @@ Trigger: `/migrate`
 - Keep migrations small and single-purpose — one logical change per file.
 - Commit migration files; they are the versioned history of the schema.
 - External-source data backfills belong to [Backfill](backfill.md), not a DDL migration.
+- Credentials stay in the environment, never in a migration file — migrations are committed, so a pasted token becomes git history.

@@ -46,3 +46,4 @@ Trigger: `/git-rescue`
 - The reflog is local-only and expires (default ~90 days) — rescue sooner rather than later.
 - Uncommitted changes that were never staged or stashed were never in git; the skill says so honestly instead of pretending.
 - For a truly mangled repo, a fresh clone plus cherry-picks from the rescue branch beats surgery in place.
+- After a secret cleanup, [Secrets Audit](secrets-audit.md) confirms nothing else is tracked or still in history.

@@ -82,3 +82,4 @@ mean   45.2    NaN
 - For database tables, show the CREATE TABLE schema alongside the profile
 - Never modify the source data — this is read-only profiling
 - If a column looks like PII (emails, names, account numbers), keep it out of the printed sample rows and top-values list — report its stats only
+- Database credentials come from the environment — never print a connection string that embeds a token, and on a failed connection name the env var that looks wrong, not its value

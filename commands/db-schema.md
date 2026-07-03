@@ -24,7 +24,7 @@ Inspect, compare, or generate database schemas.
    - Warn about destructive changes (column drops, type changes)
    - Do **not** apply them here — hand off to the `/migrate` skill, which versions and applies migrations safely.
 
-This command is strictly read-only: open SQLite/DuckDB files with read-only flags where supported, and never execute DDL or DML while inspecting. If a connection fails (missing file, expired Turso token), report the cause and stop rather than guessing at the schema.
+This command is strictly read-only: open SQLite/DuckDB files with read-only flags where supported, and never execute DDL or DML while inspecting. If a connection fails (missing file, expired Turso token), report the cause and stop rather than guessing at the schema. Take connection URLs and tokens from the environment, and never echo a connection string that embeds a credential (e.g. `libsql://...?authToken=...`) — name the host and database in output, not the URL.
 
 **BAD** — raw SQL dump with no context:
 ```

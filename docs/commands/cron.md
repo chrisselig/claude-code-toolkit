@@ -62,3 +62,4 @@ A well-formed entry uses absolute paths, captures output, and includes a descrip
 - When removing entries, the full entry is shown for review before deletion
 - The validate mode checks that every script referenced in the crontab exists on disk and has the executable bit set
 - Cron uses the system timezone; the command displays the timezone alongside schedules to avoid confusion
+- Secrets never go inline in a crontab entry — scripts load their own environment; inline credentials found in existing entries are redacted when displayed and flagged for cleanup

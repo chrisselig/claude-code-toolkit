@@ -74,3 +74,4 @@ git push
 - `--force-with-lease`, never `--force`, and only after explicit user confirmation. On shared or protected branches, fix with `git revert` instead of rewriting.
 - A pushed secret is burned even if it's force-pushed away seconds later — scrapers watch public repos. Rotation is the fix; history cleanup is just hygiene.
 - If the repo state is truly mangled, a fresh clone plus cherry-picks from the rescue branch beats surgery in place.
+- After any secret cleanup, run `/secrets-audit` to confirm nothing else is tracked or still sitting in history.

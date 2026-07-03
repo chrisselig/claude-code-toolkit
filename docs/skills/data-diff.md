@@ -55,3 +55,4 @@ Next: re-run /backfill for that date, then re-diff.
 - Tolerance is agreed up front (float epsilon, ignored columns, timezone handling) and everything ignored is listed in the report.
 - DuckDB is the default engine because it reads Parquet, CSV, SQLite, and MotherDuck in one session; big tables are aggregated in-database rather than in pandas.
 - Pairs with [Migrate](migrate.md) (verify a table rebuild), [Backfill](backfill.md) (verify a re-run), and [ETL Scaffold](etl-scaffold.md) (regression-check a transform refactor).
+- Connection credentials for both sides come from environment variables and never appear in output or the final report.
