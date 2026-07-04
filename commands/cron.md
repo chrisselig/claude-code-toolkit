@@ -27,6 +27,7 @@ List, add, validate, or remove cron jobs for the current project.
    - Add a comment above the entry explaining what it does
    - Verify the script exists and is executable (`chmod +x`)
    - Remember cron schedules run in the **server's local timezone** — convert event times before writing the entry
+   - Never embed a secret inline in a crontab entry — `crontab -l`, the backup files above, and any pasted diff would all capture it. Have the script load its own environment (dotenv or a config file); if an existing entry already carries an inline credential, redact it when displaying and flag it for cleanup
 
 **BAD** — relative paths, no logging, no comments:
 ```

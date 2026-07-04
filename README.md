@@ -102,6 +102,9 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Protect Main](skills/protect-main/) | `/protect-main` | Check and apply branch protection rules |
 | [Review PR](skills/review-pr/) | `/review-pr` | Checkout, review code, run tests, provide feedback on a PR |
 | [Cleanup Branches](skills/cleanup-branches/) | `/cleanup-branches` | Delete all merged local and remote branches |
+| [Git Rescue](skills/git-rescue/) | `/git-rescue` | Recover lost commits, undo bad rebases/resets, restore deleted branches |
+| [Secrets Audit](skills/secrets-audit/) | `/secrets-audit` | Scan working tree, tracked files, and git history for exposed credentials |
+| [Data Diff](skills/data-diff/) | `/data-diff` | Compare two datasets: schema, row counts, key-level mismatches, drift |
 | [Data Visualization](skills/visualization/) | `/visualization` | Create clear, honest charts following Tufte and Few principles |
 | [Backfill](skills/backfill/) | `/backfill` | Idempotent, resumable, gap-aware historical data loads |
 | [Migrate](skills/migrate/) | `/migrate` | Versioned, reversible schema migrations for SQLite/Turso/DuckDB |

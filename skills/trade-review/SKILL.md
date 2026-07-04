@@ -79,3 +79,4 @@ before deciding. Also: 2 of 6 were single-leg fills (execution, not strategy).
 - Drawdown should be computed on the ordered equity curve (by exit time), not as the single worst trade.
 - If the user wants charts (equity curve, per-event bars), hand off to the `/visualization` skill for Tufte-clean output.
 - Timezones: the trades table stores UTC or MT depending on the bot config — confirm which before bucketing by day, or daily P&L will be misattributed around midnight.
+- Database credentials come from the environment — never print the Turso URL or token while connecting, and keep broker account numbers out of the report if the trades table carries them.

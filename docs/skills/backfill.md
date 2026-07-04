@@ -43,3 +43,4 @@ Trigger: `/backfill`
 - Idempotency is the point: key every write on (entity, timestamp) so re-runs never duplicate.
 - Store raw responses when feasible — re-transforming locally beats re-hitting the API.
 - After backfilling the trading bot's history, the natural next step is [MC Analysis](mc-analysis.md).
+- Source and destination credentials are read from the environment — never hardcoded in a script, printed in logs, or echoed while connecting.

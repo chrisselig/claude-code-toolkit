@@ -37,3 +37,4 @@ Check crontab + logs (hand off to /log-triage).
 - Freshness needs the right timezone — convert UTC storage to the cadence's timezone before computing age.
 - "Completed" is not "worked" — always check volume and freshness, not just a clean exit.
 - Read-only — it verifies state; on a FAIL it points to `/log-triage` or `/cron`.
+- Credentials come from the environment and are never printed — an auth failure names the variable, not its value.

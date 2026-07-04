@@ -75,3 +75,4 @@ Re-run to retry the failed days.
 - Rate limits: prefer a small concurrency with backoff over hammering the source. A backfill that gets you IP-banned is slower than a polite one.
 - For very large ranges, Parquet partitioned by `entity/year/month` is cheaper to gap-check and overwrite than a single monolithic table.
 - After a backfill for the trading bot, the natural next step is `/mc-analysis` (now that the history exists) — mention it if the context fits.
+- Credentials for the source and destination (API keys, `MOTHERDUCK_TOKEN`, Turso tokens) are read from the environment at run time — never hardcoded in a backfill script, printed in its logs, or echoed while connecting.

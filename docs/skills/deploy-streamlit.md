@@ -118,3 +118,4 @@ Use `@st.cache_data` for DataFrames and serializable objects. Use `@st.cache_res
 - Add a `.streamlit/config.toml` for theme consistency across local and deployed environments.
 - For Docker deployments, expose port 8501 and set `--server.address 0.0.0.0`.
 - Streamlit Cloud provides free hosting for public repos. Private repos require a paid plan.
+- The pre-push secret scan pairs with [Secrets Audit](secrets-audit.md) for a deeper pass that includes git history.

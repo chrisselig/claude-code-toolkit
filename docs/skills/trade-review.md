@@ -46,3 +46,4 @@ Trigger: `/trade-review`
 - Separate **strategy** problems (negative expectancy, clean fills) from **execution** problems (single-leg fills, slippage, spread).
 - Win rate must be paired with payoff: 40% at 3:1 beats 80% at 1:5.
 - For charts, hand off to [Data Visualization](visualization.md). Read-only — it never modifies trade data.
+- Database credentials come from the environment and are never printed; broker account numbers stay out of the report.
