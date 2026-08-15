@@ -59,6 +59,7 @@ But many of the tools are **generic enough for any Python project** — the Git 
 | [`/deploy-streamlit`](skills/deploy-streamlit.md) | Deploy or debug a Streamlit dashboard |
 | [`/lint-fix`](skills/lint-fix.md) | Auto-detect linter, fix all errors |
 | [`/new-project`](skills/new-project.md) | Scaffold a Python project with standard tooling |
+| [`/new-web-app`](skills/new-web-app.md) | Scaffold a React + Vite + TypeScript web app |
 | [`/protect-main`](skills/protect-main.md) | Apply branch protection rules |
 | [`/review-pr`](skills/review-pr.md) | Review a PR: checkout, read diff, run tests |
 | [`/cleanup-branches`](skills/cleanup-branches.md) | Delete merged local + remote branches |

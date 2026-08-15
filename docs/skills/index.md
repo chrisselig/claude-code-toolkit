@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 21 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 25 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -41,6 +41,14 @@ The Claude Code Toolkit ships with 21 built-in skills that automate common devel
 |-------|-------------|
 | [New Project](new-project.md) | Scaffold a Python project with pyproject.toml, ruff, pytest, and git |
 
+### Web Development
+
+| Skill | Description |
+|-------|-------------|
+| [New Web App](new-web-app.md) | Scaffold a React + Vite + TypeScript web app with standard tooling |
+| [Deploy Web App](deploy-web-app.md) | Deploy or debug a Vite/React or Next.js app to Vercel, Netlify, or Docker |
+| [UI Components](ui-components.md) | Build typed, accessible React components matching the project's styling approach |
+
 ### Code Quality
 
 | Skill | Description |
@@ -54,6 +62,7 @@ The Claude Code Toolkit ships with 21 built-in skills that automate common devel
 | [Deploy Streamlit](deploy-streamlit.md) | Deploy or debug a Streamlit app locally, on Streamlit Cloud, or via Docker |
 | [New Dashboard](new-dashboard.md) | Scaffold a Streamlit or Shiny dashboard over your data source |
 | [Data Visualization](visualization.md) | Create clear, honest charts following Edward Tufte and Stephen Few principles |
+| [Infographic Design](infographic-design.md) | Design a single-page infographic with one clear takeaway and strict visual hierarchy |
 
 ## How Skills Work
 

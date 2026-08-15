@@ -165,6 +165,9 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Deploy Streamlit](skills/deploy-streamlit/) | `/deploy-streamlit` | Deploy or debug a Streamlit dashboard |
 | [Lint Fix](skills/lint-fix/) | `/lint-fix` | Auto-detect linter and fix all errors autonomously |
 | [New Project](skills/new-project/) | `/new-project` | Scaffold a new Python project with standard tooling |
+| [New Web App](skills/new-web-app/) | `/new-web-app` | Scaffold a React + Vite + TypeScript web app with standard tooling |
+| [Deploy Web App](skills/deploy-web-app/) | `/deploy-web-app` | Deploy or debug a Vite/React or Next.js app to Vercel, Netlify, or Docker |
+| [UI Components](skills/ui-components/) | `/ui-components` | Build typed, accessible React components matching the project's styling approach |
 | [Protect Main](skills/protect-main/) | `/protect-main` | Check and apply branch protection rules |
 | [Review PR](skills/review-pr/) | `/review-pr` | Checkout, review code, run tests, provide feedback on a PR |
 | [Cleanup Branches](skills/cleanup-branches/) | `/cleanup-branches` | Delete all merged local and remote branches |
@@ -172,6 +175,7 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Secrets Audit](skills/secrets-audit/) | `/secrets-audit` | Scan working tree, tracked files, and git history for exposed credentials |
 | [Data Diff](skills/data-diff/) | `/data-diff` | Compare two datasets: schema, row counts, key-level mismatches, drift |
 | [Data Visualization](skills/visualization/) | `/visualization` | Create clear, honest charts following Tufte and Few principles |
+| [Infographic Design](skills/infographic-design/) | `/infographic-design` | Design a single-page infographic with one clear takeaway |
 | [Backfill](skills/backfill/) | `/backfill` | Idempotent, resumable, gap-aware historical data loads |
 | [Migrate](skills/migrate/) | `/migrate` | Versioned, reversible schema migrations for SQLite/Turso/DuckDB |
 | [New Dashboard](skills/new-dashboard/) | `/new-dashboard` | Scaffold a Streamlit or Shiny dashboard over your data source |
