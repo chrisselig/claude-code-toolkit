@@ -62,6 +62,9 @@ nav:
     - Deploy Streamlit: skills/deploy-streamlit.md
     - Lint Fix: skills/lint-fix.md
     - New Project: skills/new-project.md
+    - New Web App: skills/new-web-app.md
+    - Deploy Web App: skills/deploy-web-app.md
+    - UI Components: skills/ui-components.md
     - Protect Main: skills/protect-main.md
     - Review PR: skills/review-pr.md
     - Cleanup Branches: skills/cleanup-branches.md
@@ -69,6 +72,7 @@ nav:
     - Secrets Audit: skills/secrets-audit.md
     - Data Diff: skills/data-diff.md
     - Data Visualization: skills/visualization.md
+    - Infographic Design: skills/infographic-design.md
     - MC Analysis: skills/mc-analysis.md
     - Trade Review: skills/trade-review.md
     - Add Event Source: skills/add-event-source.md
