@@ -84,6 +84,71 @@ cp -r ~/claude-code-toolkit/commands/* ~/.claude/commands/
 
 ---
 
+## Mac Setup (Step-by-Step)
+
+New to the command line? This guide uses the built-in **Terminal** app, so the
+commands below work exactly as written. Follow it top to bottom.
+
+### 1. Install the prerequisites
+
+- **Xcode Command Line Tools** — this gives you `git`. Open Terminal (see step 2)
+  and run `xcode-select --install`, then click **Install** in the popup that
+  appears. This can take a few minutes.
+- **Claude Code** — if you haven't installed it yet, follow the
+  [official install guide](https://docs.claude.com/en/docs/claude-code/setup).
+
+### 2. Open Terminal
+
+Press **Cmd+Space** to open Spotlight, type `Terminal`, and press **Enter**. A
+window with a text prompt appears. Every command below goes in this window —
+type it (or copy/paste) and press **Enter**.
+
+> **Tip:** to paste into Terminal, use **Cmd+V**.
+
+### 3. Clone the toolkit
+
+```bash
+git clone https://github.com/chrisselig/claude-code-toolkit.git ~/claude-code-toolkit
+```
+
+This downloads the toolkit into a folder named `claude-code-toolkit` in your
+home directory (`/Users/YourName/claude-code-toolkit`).
+
+### 4. Copy the skills and commands into Claude Code
+
+```bash
+# Create the Claude Code folders if they don't exist yet
+mkdir -p ~/.claude/skills ~/.claude/commands
+
+# Copy everything over
+cp -r ~/claude-code-toolkit/skills/* ~/.claude/skills/
+cp -r ~/claude-code-toolkit/commands/* ~/.claude/commands/
+```
+
+### 5. Verify it worked
+
+```bash
+ls ~/.claude/skills
+ls ~/.claude/commands
+```
+
+You should see a list of folders (like `pr` and `new-dashboard`) and files
+(like `status.md`). Now open Claude Code and type `/` — the new skills and
+commands will show up in the list.
+
+### Updating later
+
+When the toolkit changes, pull the latest version and copy the files again:
+
+```bash
+cd ~/claude-code-toolkit
+git pull
+cp -r ~/claude-code-toolkit/skills/* ~/.claude/skills/
+cp -r ~/claude-code-toolkit/commands/* ~/.claude/commands/
+```
+
+---
+
 ## What's Included
 
 ### Skills (interactive workflows)
@@ -93,6 +158,7 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | Skill | Trigger | Description |
 |-------|---------|-------------|
 | [PR](skills/pr/) | `/pr` | Lint, test, branch, commit, push, create PR — the full workflow |
+| [TODO to Issues](skills/todo/) | `/todo` | File roadmap items and inline TODO/FIXME comments as GitHub issues |
 | [Data Profile](skills/data-profile/) | `/data-profile` | Profile a CSV/Parquet/DB table for data quality issues |
 | [API Explore](skills/api-explore/) | `/api-explore` | Hit an API, inspect the response, generate a typed Python client |
 | [ETL Scaffold](skills/etl-scaffold/) | `/etl-scaffold` | Create a standard Extract-Transform-Load pipeline project |
@@ -120,7 +186,6 @@ Commands are triggered with `/command-name` and run a focused task.
 | Command | Trigger | Description |
 |---------|---------|-------------|
 | [Status](commands/status.md) | `/status` | Git status, recent commits, open PRs, lint/test health |
-| [TODO](commands/todo.md) | `/todo` | Scan for roadmap files and inline TODOs |
 | [Test](commands/test.md) | `/test` | Run test suite, diagnose and fix failures |
 | [Coverage](commands/coverage.md) | `/coverage` | Test coverage report with untested code highlighted |
 | [Dependencies](commands/deps.md) | `/deps` | Audit for outdated, vulnerable, or missing packages |

@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 20 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 21 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -9,6 +9,7 @@ The Claude Code Toolkit ships with 20 built-in skills that automate common devel
 | Skill | Description |
 |-------|-------------|
 | [PR Workflow](pr.md) | Lint, test, branch, commit, and open a pull request in one pass |
+| [TODO to Issues](todo.md) | File roadmap items and inline TODO/FIXME comments as GitHub issues |
 | [Review PR](review-pr.md) | Check out a PR, review the diff, run tests, and post feedback |
 | [Protect Main](protect-main.md) | Apply branch protection rules via the GitHub API |
 | [Cleanup Branches](cleanup-branches.md) | Delete local and remote branches that have been merged to main |

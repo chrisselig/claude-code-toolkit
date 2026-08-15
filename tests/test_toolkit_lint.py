@@ -40,7 +40,7 @@ def _split_frontmatter(path: Path) -> tuple[dict, str]:
 
 def test_toolkit_is_nonempty():
     assert len(SKILL_FILES) >= 17
-    assert len(COMMAND_FILES) >= 11
+    assert len(COMMAND_FILES) >= 10
 
 
 @pytest.mark.parametrize("path", ALL_SOURCE, ids=_ident)

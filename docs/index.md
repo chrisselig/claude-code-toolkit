@@ -52,6 +52,7 @@ But many of the tools are **generic enough for any Python project** — the Git 
 | Skill | What it does |
 |-------|-------------|
 | [`/pr`](skills/pr.md) | Full PR workflow: lint, test, branch, commit, push, create PR |
+| [`/todo`](skills/todo.md) | File roadmap items and inline TODO/FIXME comments as GitHub issues |
 | [`/data-profile`](skills/data-profile.md) | Profile a CSV/Parquet/DB table for quality issues |
 | [`/api-explore`](skills/api-explore.md) | Hit an API, inspect response, generate typed client |
 | [`/etl-scaffold`](skills/etl-scaffold.md) | Create a standard ETL pipeline project |
@@ -68,7 +69,6 @@ But many of the tools are **generic enough for any Python project** — the Git 
 | Command | What it does |
 |---------|-------------|
 | [`/status`](commands/status.md) | Git status, recent commits, open PRs, test health |
-| [`/todo`](commands/todo.md) | Scan for roadmap files and inline TODOs |
 | [`/test`](commands/test.md) | Run tests, diagnose failures |
 | [`/coverage`](commands/coverage.md) | Test coverage with untested code highlighted |
 | [`/deps`](commands/deps.md) | Audit for outdated/vulnerable packages |

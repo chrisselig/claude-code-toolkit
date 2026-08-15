@@ -10,7 +10,7 @@ Automates the full pull request lifecycle: lint, test, branch, commit, push, and
 4. **Stage files** -- Stage relevant files individually. Never stage `.env`, credentials, `__pycache__`, or large data files.
 5. **Commit** -- Write a conventional commit message with a `Co-Authored-By` trailer.
 6. **Push** -- Push the branch with the `-u` flag to set up tracking.
-7. **Open the PR** -- Use `gh pr create` with a short title and a body containing a `## Summary` and `## Test plan`.
+7. **Open the PR** -- Use `gh pr create` with a short title and a body containing a `## Summary` and `## Test plan`. If the changes resolve a tracked issue (e.g. one filed by [TODO to Issues](todo.md)), add `Closes #<issue>` so merging auto-closes it.
 8. **Report** -- Return the PR URL to the user.
 
 ## Example Session
