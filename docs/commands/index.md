@@ -15,7 +15,6 @@ Commands are quick, single-purpose actions that gather information or perform a 
 | Command | Description |
 |---------|-------------|
 | [`/status`](status.md) | Git status, recent commits, open PRs, lint and test health |
-| [`/todo`](todo.md) | Scan roadmap files and inline TODOs across the codebase |
 | [`/test`](test.md) | Run the test suite, diagnose and fix failures |
 | [`/coverage`](coverage.md) | Run tests with coverage, highlight untested code |
 | [`/deps`](deps.md) | Audit dependencies for outdated, vulnerable, or missing packages |

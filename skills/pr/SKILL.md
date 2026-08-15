@@ -22,6 +22,7 @@ description: Run the full pull-request workflow — lint, test, create a feature
 7. Create PR with `gh pr create` using a short title (<70 chars) and a body with:
    - `## Summary` — bullet points of what changed and why
    - `## Test plan` — checklist of how to verify
+   - If the changes resolve a tracked GitHub issue, add `Closes #<issue>` (or `Fixes #<issue>`) so merging auto-closes it — check `git log`/branch name/commit messages for an issue reference before asking the user.
 8. Report the PR URL to the user.
 
 ## Notes

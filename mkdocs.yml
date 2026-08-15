@@ -52,6 +52,7 @@ nav:
   - Skills:
     - Overview: skills/index.md
     - PR Workflow: skills/pr.md
+    - TODO to Issues: skills/todo.md
     - Data Profile: skills/data-profile.md
     - API Explore: skills/api-explore.md
     - ETL Scaffold: skills/etl-scaffold.md
@@ -74,7 +75,6 @@ nav:
   - Commands:
     - Overview: commands/index.md
     - Status: commands/status.md
-    - TODO: commands/todo.md
     - Test: commands/test.md
     - Coverage: commands/coverage.md
     - Dependencies: commands/deps.md
