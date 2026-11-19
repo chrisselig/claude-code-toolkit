@@ -173,7 +173,9 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [Cleanup Branches](skills/cleanup-branches/) | `/cleanup-branches` | Delete all merged local and remote branches |
 | [Git Rescue](skills/git-rescue/) | `/git-rescue` | Recover lost commits, undo bad rebases/resets, restore deleted branches |
 | [Secrets Audit](skills/secrets-audit/) | `/secrets-audit` | Scan working tree, tracked files, and git history for exposed credentials |
+| [PII Audit](skills/pii-audit/) | `/pii-audit` | Scan data files, code, and git history for exposed personal information |
 | [Data Diff](skills/data-diff/) | `/data-diff` | Compare two datasets: schema, row counts, key-level mismatches, drift |
+| [ML Experiment](skills/ml-experiment/) | `/ml-experiment` | Scaffold or audit a model-training script for seeds, leakage, and baselines |
 | [Data Visualization](skills/visualization/) | `/visualization` | Create clear, honest charts following Tufte and Few principles |
 | [Infographic Design](skills/infographic-design/) | `/infographic-design` | Design a single-page infographic with one clear takeaway |
 | [Backfill](skills/backfill/) | `/backfill` | Idempotent, resumable, gap-aware historical data loads |
