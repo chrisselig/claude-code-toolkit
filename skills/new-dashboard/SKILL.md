@@ -23,27 +23,30 @@ Scaffold a dashboard that reads from an existing database and presents it cleanl
    ├── styles.css           # ALL custom CSS lives here — never inline
    ├── .streamlit/config.toml   # (Streamlit) theme + settings
    ├── .env.example         # DB connection vars
+   ├── .pre-commit-config.yaml
    └── requirements.txt / pyproject.toml
    ```
 
-3. **Isolate data access in `data.py`.** All queries live here behind cached functions — the UI never opens a connection inline. Cache with `@st.cache_data` (Streamlit) or a module-level cached helper (Shiny) so every widget interaction doesn't re-hit the database.
+3. **Wire up `.pre-commit-config.yaml`** (trailing-whitespace, end-of-file-fixer, check-yaml, ruff --fix, ruff-format — same hook set as [New Project](../new-project/SKILL.md)) and run `pre-commit install` before the first commit.
 
-4. **Read connection details from the environment**, never hardcoded. Default to a local file for dev, the cloud DB when the env var is set.
+5. **Isolate data access in `data.py`.** All queries live here behind cached functions — the UI never opens a connection inline. Cache with `@st.cache_data` (Streamlit) or a module-level cached helper (Shiny) so every widget interaction doesn't re-hit the database.
 
-5. **Respect the framework's reactivity model.** This is the thing that makes these apps fast or slow, correct or buggy — get it right up front.
-   - **Streamlit** reruns the *entire script top-to-bottom* on every widget interaction. So: keep expensive work behind `@st.cache_data`/`@st.cache_resource` (see step 3), and persist anything that must survive a rerun (a running total, a selected row, a wizard step) in `st.session_state` — a plain local variable resets every interaction. Don't fake reactivity with manual reruns unless you need them.
+6. **Read connection details from the environment**, never hardcoded. Default to a local file for dev, the cloud DB when the env var is set.
+
+7. **Respect the framework's reactivity model.** This is the thing that makes these apps fast or slow, correct or buggy — get it right up front.
+   - **Streamlit** reruns the *entire script top-to-bottom* on every widget interaction. So: keep expensive work behind `@st.cache_data`/`@st.cache_resource` (see step 5), and persist anything that must survive a rerun (a running total, a selected row, a wizard step) in `st.session_state` — a plain local variable resets every interaction. Don't fake reactivity with manual reruns unless you need them.
    - **Shiny for Python** has a real reactive graph — don't write it like Streamlit. Read inputs inside `@render.*` outputs and `@reactive.calc` (cached, recomputes only when its inputs change); use `@reactive.effect` only for side effects. Derive a value once in a `@reactive.calc` and reuse it rather than recomputing per output.
    - Either way: state flows one direction (inputs → derived data → outputs). Don't mutate shared globals from the render path.
 
-6. **Handle loading, empty, and error states — don't assume the happy path.** A dashboard that shows a raw traceback or a blank screen when the DB is down or a filter matches nothing reads as broken. Wrap slow queries in a spinner (`st.spinner` / Shiny's built-in busy indicators), show an explicit "no data for this filter" message on an empty result, and catch connection/query failures to surface a readable message instead of a stack trace.
+8. **Handle loading, empty, and error states — don't assume the happy path.** A dashboard that shows a raw traceback or a blank screen when the DB is down or a filter matches nothing reads as broken. Wrap slow queries in a spinner (`st.spinner` / Shiny's built-in busy indicators), show an explicit "no data for this filter" message on an empty result, and catch connection/query failures to surface a readable message instead of a stack trace.
 
-7. **Build the layout:** a title, a filter sidebar, headline metrics up top, then charts/tables. Keep charts honest and high-density (defer to the `/visualization` skill's principles — zero-baseline bars, no chartjunk, direct labels).
+9. **Build the layout:** a title, a filter sidebar, headline metrics up top, then charts/tables. Keep charts honest and high-density (defer to the `/visualization` skill's principles — zero-baseline bars, no chartjunk, direct labels).
 
-8. **Put all custom CSS in `styles.css` — never inline.** Create a `styles.css` file and load it once at app startup. Do not sprinkle `st.markdown("<style>…</style>", unsafe_allow_html=True)` through the app, and do not pass `style="…"` on individual HTML elements. One file, loaded once, is the single source of truth for styling — it keeps the Python readable, makes styles reusable, and lets a designer edit CSS without touching app logic.
+10. **Put all custom CSS in `styles.css` — never inline.** Create a `styles.css` file and load it once at app startup. Do not sprinkle `st.markdown("<style>…</style>", unsafe_allow_html=True)` through the app, and do not pass `style="…"` on individual HTML elements. One file, loaded once, is the single source of truth for styling — it keeps the Python readable, makes styles reusable, and lets a designer edit CSS without touching app logic.
 
-9. **Add a run/deploy note** to the README: `streamlit run app.py` or `shiny run app.py`, plus the required env vars. If deploying Streamlit, point to the `/deploy-streamlit` skill.
+11. **Add a run/deploy note** to the README: `streamlit run app.py` or `shiny run app.py`, plus the required env vars. If deploying Streamlit, point to the `/deploy-streamlit` skill.
 
-10. Generate the code, confirm it imports/launches, and summarize how to run it.
+12. Generate the code, confirm it imports/launches, and summarize how to run it.
 
 ## Examples
 

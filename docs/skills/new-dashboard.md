@@ -8,10 +8,11 @@ Trigger: `/new-dashboard`
 
 1. **Choose** framework (Streamlit or Shiny), data source (Turso, DuckDB/MotherDuck, SQLite, Parquet), and the tables/metrics to show.
 2. **Scaffold** `app.py`, a cached `data.py` access layer, a `components/` directory, config, and `.env.example`.
-3. **Isolate data access** — all queries live in `data.py` behind cached functions; the UI never opens a connection inline.
-4. **Env-driven connection** — local file for dev, cloud DB when the env var is set.
-5. **Layout** — title, filter sidebar, headline metrics, then honest high-density charts.
-6. **Run/deploy note** in the README; hand off shipping to [Deploy Streamlit](deploy-streamlit.md).
+3. **Wire up pre-commit** — generate `.pre-commit-config.yaml` (same hook set as [New Project](new-project.md)) and run `pre-commit install` before the first commit.
+4. **Isolate data access** — all queries live in `data.py` behind cached functions; the UI never opens a connection inline.
+5. **Env-driven connection** — local file for dev, cloud DB when the env var is set.
+6. **Layout** — title, filter sidebar, headline metrics, then honest high-density charts.
+7. **Run/deploy note** in the README; hand off shipping to [Deploy Streamlit](deploy-streamlit.md).
 
 ## Cached, Isolated Data Access
 

@@ -30,19 +30,25 @@ the web-app counterpart to `new-project` (which is Python-only).
    - `package.json` scripts: `dev`, `build`, `preview`, `lint`, `format`, `test`.
 5. Confirm `tsconfig.json` has `"strict": true` (the Vite react-ts template sets
    this by default — verify rather than assume, since templates change).
-6. Create the remaining project files:
+6. Wire up pre-commit enforcement so lint/format run before every commit,
+   not just when `npm run lint` is remembered: `npx husky init`, then a
+   `lint-staged` config in `package.json` running `eslint --fix` and
+   `prettier --write` on staged files, with Husky's `pre-commit` hook calling
+   `npx lint-staged`.
+7. Create the remaining project files:
    - `.env.example` — placeholder values only, prefixed `VITE_` for anything
      the client needs to read (see Notes on what never belongs here).
    - `.gitignore` for Node (`node_modules/`, `dist/`, `.env`, `.env.local`, `*.local`).
    - `README.md` with setup/run instructions.
    - `CLAUDE.md` with the project's conventions (styling approach, state
      management choice, testing approach) so they're explicit from commit one.
-7. Initialize git: `git init`, then `git status` to confirm `node_modules/`,
+8. Initialize git: `git init`, then `git status` to confirm `node_modules/`,
    `dist/`, and `.env` are not listed, then
-   `git add -A && git commit -m "feat: initial project scaffold"`.
-8. Create the GitHub repo if requested: `gh repo create` — confirm public vs
+   `git add -A && git commit -m "feat: initial project scaffold"` —
+   the Husky hook runs on this first commit too, so it's clean from commit one.
+9. Create the GitHub repo if requested: `gh repo create` — confirm public vs
    private with the user, and push the initial commit.
-9. Set up branch protection using the flexible approach (PRs required, admin
+10. Set up branch protection using the flexible approach (PRs required, admin
    bypass) — needs the repo pushed to GitHub first; skip with a note if the
    project stays local. Use the `protect-main` skill.
 
