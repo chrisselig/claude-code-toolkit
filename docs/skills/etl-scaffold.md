@@ -6,8 +6,9 @@ Create a standard Extract-Transform-Load pipeline with modular stages, Pydantic 
 
 1. **Gather requirements** -- Determine the data source, destination, transform logic, and schedule (one-off, daily cron, or event-triggered).
 2. **Create the directory structure** -- Generate a standard project layout with separate modules for each ETL stage.
-3. **Generate pipeline code** -- Write extract, transform, load, and orchestrator modules following best practices.
-4. **Add scheduling** -- Create a cron script or entry point if the pipeline runs on a schedule.
+3. **Wire up pre-commit** -- Generate `.pre-commit-config.yaml` (same hook set as [New Project](new-project.md)) and run `pre-commit install` before the first commit.
+4. **Generate pipeline code** -- Write extract, transform, load, and orchestrator modules following best practices.
+5. **Add scheduling** -- Create a cron script or entry point if the pipeline runs on a schedule.
 
 ## Directory Structure
 
@@ -28,6 +29,7 @@ project_name/
 │   └── fixtures/        # Sample data for tests
 ├── data/                # Local data directory (gitignored)
 ├── .env.example
+├── .pre-commit-config.yaml
 ├── pyproject.toml
 └── README.md
 ```

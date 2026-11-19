@@ -7,9 +7,10 @@ Scaffold a new Python project with a standard directory layout, `pyproject.toml`
 1. **Gather inputs** -- Ask for the project name, a brief description, and the target Python version (defaults to 3.12).
 2. **Create the directory structure** -- Generate the standard src-layout project.
 3. **Generate configuration files** -- Write `pyproject.toml`, `.gitignore`, `.env.example`, and `CLAUDE.md`.
-4. **Initialize git** -- Run `git init`, stage all files, and create the initial commit.
-5. **Create GitHub repo** -- If requested, run `gh repo create` to create a remote repository.
-6. **Apply branch protection** -- Set up flexible protection on the main branch (PRs required, admin bypass).
+4. **Wire up pre-commit** -- Generate `.pre-commit-config.yaml` (trailing-whitespace, end-of-file-fixer, check-yaml, ruff, ruff-format) and run `pre-commit install`, so lint/format run before every commit instead of never getting added later.
+5. **Initialize git** -- Run `git init`, stage all files, and create the initial commit (pre-commit runs on this commit too).
+6. **Create GitHub repo** -- If requested, run `gh repo create` to create a remote repository.
+7. **Apply branch protection** -- Set up flexible protection on the main branch (PRs required, admin bypass).
 
 ## Directory Structure
 
@@ -25,6 +26,7 @@ project_name/
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
+├── .pre-commit-config.yaml
 ├── README.md
 └── CLAUDE.md
 ```
@@ -113,6 +115,7 @@ The `CLAUDE.md` file establishes project conventions for Claude Code:
 |------|---------------|---------|
 | ruff | `[tool.ruff]` in pyproject.toml | Linting and import sorting |
 | pytest | `[tool.pytest.ini_options]` in pyproject.toml | Test discovery and async mode |
+| pre-commit | `.pre-commit-config.yaml`, installed hook | Lint/format enforced before every commit |
 | git | `.gitignore` | Exclude generated files and secrets |
 | Claude Code | `CLAUDE.md` | Project conventions for AI assistance |
 

@@ -10,10 +10,11 @@ the web-app counterpart to [New Project](new-project.md), which is Python-only.
 3. Scaffolds with `npm create vite@latest -- --template react-ts`.
 4. Adds Prettier, Vitest, and `@testing-library/react` on top of the Vite defaults.
 5. Verifies `tsconfig.json` has `"strict": true`.
-6. Creates `.env.example`, `.gitignore`, `README.md`, and `CLAUDE.md`.
-7. Initializes git and makes the first commit.
-8. Optionally creates the GitHub repo and pushes.
-9. Optionally applies branch protection via [Protect Main](protect-main.md).
+6. Wires up pre-commit enforcement with Husky + lint-staged, running `eslint --fix` and `prettier --write` on staged files.
+7. Creates `.env.example`, `.gitignore`, `README.md`, and `CLAUDE.md`.
+8. Initializes git and makes the first commit (the Husky hook runs on it too).
+9. Optionally creates the GitHub repo and pushes.
+10. Optionally applies branch protection via [Protect Main](protect-main.md).
 
 ## Example
 

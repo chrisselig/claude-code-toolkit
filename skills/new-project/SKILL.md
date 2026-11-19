@@ -31,6 +31,7 @@ project_name/
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore
+├── .pre-commit-config.yaml
 ├── README.md
 └── CLAUDE.md
 ```
@@ -39,9 +40,26 @@ project_name/
    - Project metadata
    - `[tool.ruff]` config (line-length=120, target Python version)
    - `[tool.pytest.ini_options]` config
-   - `[project.optional-dependencies]` with dev deps (pytest, ruff)
+   - `[project.optional-dependencies]` with dev deps (pytest, ruff, pre-commit)
 6. Generate `.gitignore` for Python (venv, __pycache__, .env, *.pyc, dist/, *.egg-info/) **before** the first commit. Seed `.env.example` with placeholder values only (`API_KEY=your-key-here`) — never copy or read a real `.env` to build it.
-7. Generate a minimal `CLAUDE.md` with project conventions.
-8. Initialize git repo: `git init`, then `git status` to confirm `.env` and other ignored files are not listed, then `git add -A && git commit -m "feat: initial project scaffold"`.
-9. Create GitHub repo if requested: `gh repo create` — confirm public vs private with the user, and push the initial commit.
-10. Set up branch protection using the flexible approach (PRs required, admin bypass) — this needs the repo pushed to GitHub first; skip with a note if the project stays local. Use the `/protect-main` skill.
+7. Generate `.pre-commit-config.yaml` so lint/format run before every commit, not just when someone remembers to:
+   ```yaml
+   repos:
+     - repo: https://github.com/pre-commit/pre-commit-hooks
+       rev: v5.0.0
+       hooks:
+         - id: trailing-whitespace
+         - id: end-of-file-fixer
+         - id: check-yaml
+     - repo: https://github.com/astral-sh/ruff-pre-commit
+       rev: v0.11.13
+       hooks:
+         - id: ruff
+           args: [--fix]
+         - id: ruff-format
+   ```
+   Then `conda run -n <project_name> pip install pre-commit && conda run -n <project_name> pre-commit install` so the hook is actually active in this clone, not just checked in.
+8. Generate a minimal `CLAUDE.md` with project conventions.
+9. Initialize git repo: `git init`, then `git status` to confirm `.env` and other ignored files are not listed, then `git add -A && git commit -m "feat: initial project scaffold"` — pre-commit runs on this first commit too, so it's clean from commit one.
+10. Create GitHub repo if requested: `gh repo create` — confirm public vs private with the user, and push the initial commit.
+11. Set up branch protection using the flexible approach (PRs required, admin bypass) — this needs the repo pushed to GitHub first; skip with a note if the project stays local. Use the `/protect-main` skill.

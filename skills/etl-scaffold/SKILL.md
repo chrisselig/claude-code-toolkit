@@ -33,12 +33,14 @@ project_name/
 │   └── fixtures/       # Sample data for tests
 ├── data/               # Local data directory (gitignored)
 ├── .env.example
+├── .pre-commit-config.yaml
 ├── pyproject.toml
 └── README.md
 ```
 
-3. Generate the pipeline code following the patterns below.
-4. Add a cron script if scheduled.
+3. Generate `.pre-commit-config.yaml` (trailing-whitespace, end-of-file-fixer, check-yaml, ruff --fix, ruff-format — same hook set as [New Project](../new-project/SKILL.md)) and run `pre-commit install` before the first commit, so lint/format enforcement exists from day one instead of never getting added later.
+4. Generate the pipeline code following the patterns below.
+5. Add a cron script if scheduled.
 
 ## Examples
 
