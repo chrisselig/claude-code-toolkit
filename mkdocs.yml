@@ -70,7 +70,9 @@ nav:
     - Cleanup Branches: skills/cleanup-branches.md
     - Git Rescue: skills/git-rescue.md
     - Secrets Audit: skills/secrets-audit.md
+    - PII Audit: skills/pii-audit.md
     - Data Diff: skills/data-diff.md
+    - ML Experiment: skills/ml-experiment.md
     - Data Visualization: skills/visualization.md
     - Infographic Design: skills/infographic-design.md
     - MC Analysis: skills/mc-analysis.md

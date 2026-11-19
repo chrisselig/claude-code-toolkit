@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 25 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 27 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -15,6 +15,7 @@ The Claude Code Toolkit ships with 25 built-in skills that automate common devel
 | [Cleanup Branches](cleanup-branches.md) | Delete local and remote branches that have been merged to main |
 | [Git Rescue](git-rescue.md) | Recover lost commits, undo bad rebases/resets, and restore deleted branches |
 | [Secrets Audit](secrets-audit.md) | Scan the working tree, tracked files, and git history for exposed credentials |
+| [PII Audit](pii-audit.md) | Scan data files, code, and git history for exposed personal information |
 
 ### Data Engineering
 
@@ -26,6 +27,7 @@ The Claude Code Toolkit ships with 25 built-in skills that automate common devel
 | [Backfill](backfill.md) | Idempotent, resumable, gap-aware historical data loads |
 | [Migrate](migrate.md) | Versioned, reversible schema migrations for SQLite, Turso, and DuckDB |
 | [Data Diff](data-diff.md) | Compare two datasets and report schema, row-count, and value differences |
+| [ML Experiment](ml-experiment.md) | Scaffold or audit a model-training script for seeds, leakage, and baselines |
 
 ### Trading
 
