@@ -69,6 +69,7 @@ nav:
     - Review PR: skills/review-pr.md
     - Cleanup Branches: skills/cleanup-branches.md
     - Git Rescue: skills/git-rescue.md
+    - Git Guardrails: skills/git-guardrails.md
     - Secrets Audit: skills/secrets-audit.md
     - PII Audit: skills/pii-audit.md
     - Data Diff: skills/data-diff.md
@@ -78,6 +79,9 @@ nav:
     - MC Analysis: skills/mc-analysis.md
     - Trade Review: skills/trade-review.md
     - Add Event Source: skills/add-event-source.md
+    - Wizard: skills/wizard.md
+    - Diagnosing Bugs: skills/diagnosing-bugs.md
+    - Research: skills/research.md
   - Commands:
     - Overview: commands/index.md
     - Status: commands/status.md

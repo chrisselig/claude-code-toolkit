@@ -1,6 +1,6 @@
 # Skills Overview
 
-The Claude Code Toolkit ships with 27 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
+The Claude Code Toolkit ships with 31 built-in skills that automate common development and data engineering workflows. Each skill is a structured procedure that Claude follows step-by-step, ensuring consistent, high-quality results.
 
 ## Skills by Category
 
@@ -14,6 +14,7 @@ The Claude Code Toolkit ships with 27 built-in skills that automate common devel
 | [Protect Main](protect-main.md) | Apply branch protection rules via the GitHub API |
 | [Cleanup Branches](cleanup-branches.md) | Delete local and remote branches that have been merged to main |
 | [Git Rescue](git-rescue.md) | Recover lost commits, undo bad rebases/resets, and restore deleted branches |
+| [Git Guardrails](git-guardrails.md) | Install a hook that blocks force-push, reset --hard, and other destructive git commands |
 | [Secrets Audit](secrets-audit.md) | Scan the working tree, tracked files, and git history for exposed credentials |
 | [PII Audit](pii-audit.md) | Scan data files, code, and git history for exposed personal information |
 
@@ -42,6 +43,7 @@ The Claude Code Toolkit ships with 27 built-in skills that automate common devel
 | Skill | Description |
 |-------|-------------|
 | [New Project](new-project.md) | Scaffold a Python project with pyproject.toml, ruff, pytest, and git |
+| [Wizard](wizard.md) | Generate an interactive bash wizard for manual setup or migration steps only a human can do |
 
 ### Web Development
 
@@ -65,6 +67,13 @@ The Claude Code Toolkit ships with 27 built-in skills that automate common devel
 | [New Dashboard](new-dashboard.md) | Scaffold a Streamlit or Shiny dashboard over your data source |
 | [Data Visualization](visualization.md) | Create clear, honest charts following Edward Tufte and Stephen Few principles |
 | [Infographic Design](infographic-design.md) | Design a single-page infographic with one clear takeaway and strict visual hierarchy |
+
+### Debugging and Research
+
+| Skill | Description |
+|-------|-------------|
+| [Diagnosing Bugs](diagnosing-bugs.md) | A disciplined loop for hard bugs: build a red-capable feedback loop before hypothesizing |
+| [Research](research.md) | Delegate a factual investigation to a background agent that writes cited findings to a file |
 
 ## How Skills Work
 

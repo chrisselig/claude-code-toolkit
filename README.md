@@ -184,6 +184,10 @@ Skills are multi-step workflows triggered with `/skill-name`. They guide Claude 
 | [MC Analysis](skills/mc-analysis/) | `/mc-analysis` | Monte Carlo + walk-forward validation → strategy research report |
 | [Trade Review](skills/trade-review/) | `/trade-review` | Analyze closed trades; compare live P&L vs backtest for drift |
 | [Add Event Source](skills/add-event-source/) | `/add-event-source` | Onboard a new economic event to the forex trading bot |
+| [Git Guardrails](skills/git-guardrails/) | `/git-guardrails` | Install a hook that blocks force-push, reset --hard, and other destructive git commands |
+| [Wizard](skills/wizard/) | `/wizard` | Generate an interactive bash wizard for manual setup or migration steps only a human can do |
+| [Diagnosing Bugs](skills/diagnosing-bugs/) | `/diagnosing-bugs` | A disciplined loop for hard bugs: build a red-capable feedback loop before hypothesizing |
+| [Research](skills/research/) | `/research` | Delegate a factual investigation to a background agent that writes cited findings to a file |
 
 ### Commands (quick actions)
 
